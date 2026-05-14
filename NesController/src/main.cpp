@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "wifi.h"
 
 // Define NES controller pins
 const int nesDataPin = 4;
@@ -7,6 +8,8 @@ const int nesLatchPin = 5;
 
 void setup() {
   Serial.begin(9600);
+
+  wifiSetup();
 
   // Set pin modes
   pinMode(nesDataPin, INPUT_PULLUP);
@@ -34,8 +37,6 @@ byte readNesController() {
     // Read the data pin (active low, so we invert it: LOW means pressed)
     int bit = digitalRead(nesDataPin) == LOW ? 1 : 0;
 
-    Serial.printf("bit: %d\n", bit);
-
     // Store the bit in our byte
     controllerData |= (bit << i);
 
@@ -51,9 +52,9 @@ byte readNesController() {
 void loop() {
   byte state = readNesController();
 
-  Serial.printf("%x\n", state);
-
-  /* if (state > 0) {
+  
+  if (state > 0) {
+    Serial.printf("%x\n", state);
     Serial.print("Pressed Buttons: ");
     if (state & (1 << 0)) Serial.print("A ");
     if (state & (1 << 1)) Serial.print("B ");
@@ -64,7 +65,7 @@ void loop() {
     if (state & (1 << 6)) Serial.print("Left ");
     if (state & (1 << 7)) Serial.print("Right ");
     Serial.println();
-  } */
+  }
 
   // Polling delay
   delay(16); // roughly 60Hz 
