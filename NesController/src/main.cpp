@@ -50,6 +50,7 @@ byte readNesController() {
 }
 
 void loop() {
+  wifiLoop();
   byte state = readNesController();
 
   
