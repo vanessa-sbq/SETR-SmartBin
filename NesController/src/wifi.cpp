@@ -61,7 +61,7 @@ void connectToSocket() {
     conn_status = CLIENT_READY;
 }
 
-void wifiLoop() {
+void wifiLoop(std::string message) {
     switch (conn_status) {
     case BOOT: // Do nothing. Still waiiting for a connection.
         break;
@@ -78,7 +78,7 @@ void wifiLoop() {
     case CLIENT_READY:
         // Example: Send some data once connected
         Serial.println("Sending data to client");
-        client.println("Hello from ESP8266.");
+        client.println(message.c_str());
         if (!client.connected()) {
             conn_status = CONNECTED;
         }

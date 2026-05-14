@@ -1,3 +1,5 @@
+#include <string>
+
 void wifiSetup();
 void connectToSocket();
-void wifiLoop();
+void wifiLoop(std::string message);

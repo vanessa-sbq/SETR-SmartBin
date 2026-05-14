@@ -1,5 +1,8 @@
 #include <Arduino.h>
+#include <sstream>
 #include "wifi.h"
+
+std::stringstream ss;
 
 // Define NES controller pins
 const int nesDataPin = 4;
@@ -50,23 +53,35 @@ byte readNesController() {
 }
 
 void loop() {
-  wifiLoop();
   byte state = readNesController();
 
   
   if (state > 0) {
-    Serial.printf("%x\n", state);
-    Serial.print("Pressed Buttons: ");
-    if (state & (1 << 0)) Serial.print("A ");
-    if (state & (1 << 1)) Serial.print("B ");
-    if (state & (1 << 2)) Serial.print("Select ");
-    if (state & (1 << 3)) Serial.print("Start ");
-    if (state & (1 << 4)) Serial.print("Up ");
-    if (state & (1 << 5)) Serial.print("Down ");
-    if (state & (1 << 6)) Serial.print("Left ");
-    if (state & (1 << 7)) Serial.print("Right ");
-    Serial.println();
+
+    const char* buttons[] = {"A", "B", "Select", "Start", "Up", "Down", "Left", "Right"};
+
+    for (int bitNumber = 0; bitNumber < 8; bitNumber++) {
+
+      // Check if a button is being pressed.
+      if (state & (1 << bitNumber)) {
+        
+        // If the stringstream already has elements inside then we should append a comma.
+        if (ss.tellp() > 0) {
+          ss << ",";  
+        }
+
+        ss << buttons[bitNumber];
+      }
+    }
+
   }
+
+  // Convert std::string to Arduino String by getting a c string
+  wifiLoop(ss.str());
+  
+  // Clear the stringstream for the next loop iteration
+  ss.str("");
+  ss.clear();
 
   // Polling delay
   delay(16); // roughly 60Hz 
