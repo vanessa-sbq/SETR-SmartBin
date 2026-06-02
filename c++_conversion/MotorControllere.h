@@ -1,11 +1,13 @@
 #pragma once
 
+#include <iostream>
 #include <cstdint>
 #include <string>
 #include <gpiod.h>
 #include <PiPCA9685/PCA9685.h>
 #include "MotorPins.h"
 #include <stdexcept>
+#include <vector>
 
 class MotorController {
 public:
@@ -95,6 +97,7 @@ public:
     void lower_left(uint16_t speed);
     void upper_left(uint16_t speed);
     void lower_right(uint16_t speed);
+    void move_individual(std::vector<double> speeds);
 
 private:
     void rr_ahead();

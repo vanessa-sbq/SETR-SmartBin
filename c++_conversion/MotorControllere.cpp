@@ -91,6 +91,45 @@ void MotorController::lower_right(uint16_t speed) {
     change_speed(speed);
 }
 
+void MotorController::move_individual(std::vector<double> speeds) {
+    // Front right
+    if (speeds[0] >= 0.0) {
+        std::cout << ""; //TODO:
+        //fr_ahead();
+    } else {
+        fr_back();
+    }
+
+
+    // Front Left
+    if (speeds[1] >= 0.0) {
+        fl_ahead();
+    } else {
+        std::cout << "GOING FRONT LEFT BACK\n";
+        fl_back();
+    }
+
+
+    // Back right
+    if (speeds[2] >= 0.0) {
+        rr_ahead();
+    } else {
+        std::cout << "GOING REAR RIGHT BACK\n";
+        rr_back();
+    }
+
+
+    // Back Left
+    if (speeds[3] >= 0.0) {
+        std::cout << ""; //TODO:
+        //rl_ahead();
+    } else {
+        rl_back();
+    }
+}
+
+
+
 void MotorController::set_line(unsigned int offset, int value) {
     enum gpiod_line_value val = value ? GPIOD_LINE_VALUE_ACTIVE : GPIOD_LINE_VALUE_INACTIVE;
     if (gpiod_line_request_set_value(request_, offset, val) < 0) {

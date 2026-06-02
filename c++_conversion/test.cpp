@@ -14,6 +14,8 @@
 #include <unistd.h>
 #include <math.h>
 #include <limits.h>
+#include <cmath>
+#include <stdexcept>
 
 namespace {
 	constexpr int kListenPort = 6767;
@@ -93,11 +95,13 @@ namespace {
 // This is in centimeters per second
 #define MAX_SPEED 10.0
 
-int16_t meters_per_sec_to_pwm(float speed) {
+int16_t meters_per_sec_to_pwm(double speed) {
+    //if (speed < 0) speed = -speed;
+
     // First convert cm/s to m/s
-    float temp_conversion = MAX_SPEED / 100.0;
+    double temp_conversion = MAX_SPEED / 100.0;
     
-    float pwm_value = (speed * MAX_PWM) / temp_conversion;
+    double pwm_value = (speed * MAX_PWM) / temp_conversion;
 
     std::cout << "PWM Value:" << pwm_value << "\n";
 
@@ -105,7 +109,30 @@ int16_t meters_per_sec_to_pwm(float speed) {
         return 0;
     }
 
-    return (int) pwm_value;
+    if (pwm_value > MAX_PWM) pwm_value = MAX_PWM;
+
+    return (int16_t) pwm_value;
+}
+
+std::vector<double> calculateOmniWheelSpeeds(double vx, double vy, double omega, double radius) {
+    std::vector<double> wheelAngles;
+   
+    wheelAngles = {45.0, 135.0, 225.0, 315.0};
+
+    std::vector<double> wheelSpeeds;
+
+    double v_fl = vx + vy;
+    double v_fr = vx - vy;
+    double v_rl = vx - vy;
+    double v_rr = vx + vy;
+
+    wheelSpeeds.push_back(v_fr);
+    wheelSpeeds.push_back(v_fl);
+    wheelSpeeds.push_back(v_rr);
+    wheelSpeeds.push_back(v_rl);
+  
+
+   return wheelSpeeds;
 }
 
 
@@ -120,13 +147,20 @@ int main() {
         pwm.set_pwm(1,0,1000);//20479);
         pwm.set_pwm(2,0,990);//20479);
         pwm.set_pwm(3,0,1000);//20479); */
-
-        uint16_t pwmSpeed = meters_per_sec_to_pwm(0.0999999999999);
-
-        pwm.set_pwm(0,0, pwmSpeed);//20479);
-        pwm.set_pwm(1,0, pwmSpeed);//);
-        pwm.set_pwm(2,0, pwmSpeed);//20479);
-        pwm.set_pwm(3,0, pwmSpeed);//);
+        float vx = -0.02;
+        float vy = -0.02;
+        
+        std::vector<double> wheel_speeds = calculateOmniWheelSpeeds(vx, vy, 0, 0);
+        
+        uint16_t pwmSpeed1 = meters_per_sec_to_pwm(abs(wheel_speeds[0]));
+        uint16_t pwmSpeed2 = meters_per_sec_to_pwm(abs(wheel_speeds[1]));
+        uint16_t pwmSpeed3 = meters_per_sec_to_pwm(abs(wheel_speeds[2]));
+        uint16_t pwmSpeed4 = meters_per_sec_to_pwm(abs(wheel_speeds[3]));
+        std::cout << "Wheel speeds: " << wheel_speeds[0] << " " << wheel_speeds[1] << " " << wheel_speeds[2] << " " << wheel_speeds[3] << "\n";
+        pwm.set_pwm(0,0, pwmSpeed1); // Front right
+        pwm.set_pwm(1,0, pwmSpeed2); // Front Left
+        pwm.set_pwm(2,0, pwmSpeed3); // Back right
+        pwm.set_pwm(3,0, pwmSpeed4); // Back Left
         MotorPins pins;
         MotorController motors("/dev/gpiochip0", pins/* , pwm */);
 
@@ -177,9 +211,11 @@ int main() {
                 }
 
                 case ServerState::kAccept: {
-                    motors.go_ahead(speed);
+                    motors.move_individual(wheel_speeds);
                     std::this_thread::sleep_for(std::chrono::milliseconds(10));
                     motors.stop_car();
+                    //motors.go_ahead(speed);
+
                     /* sockaddr_in client_addr = {};
                     socklen_t client_len = sizeof(client_addr);
                     client_fd = ::accept(listen_fd, reinterpret_cast<sockaddr *>(&client_addr), &client_len);
