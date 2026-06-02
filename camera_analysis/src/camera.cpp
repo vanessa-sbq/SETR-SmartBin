@@ -9,39 +9,50 @@ Camera::~Camera() {
 }
 
 bool Camera::open() {
-    // 1. Configure the native libcamera options
+#ifdef USING_OPENCV_CAM
+    // WSL / PC Mode: Open default USB webcam (device 0) or an offline video string path
+    m_cam.open(m_deviceIndex, cv::CAP_ANY);
+    if (!m_cam.isOpened()) return false;
+
+    m_cam.set(cv::CAP_PROP_FRAME_WIDTH, m_width);
+    m_cam.set(cv::CAP_PROP_FRAME_HEIGHT, m_height);
+    m_cam.set(cv::CAP_PROP_FPS, m_fps);
+    m_isRunning = true;
+    std::cout << "[Camera] Opened WebCam/Video via standard cross-platform OpenCV\n";
+#else
+    // Raspberry Pi Native Hardware Mode
     m_cam.options->video_width = m_width;
     m_cam.options->video_height = m_height;
     m_cam.options->framerate = m_fps;
-    m_cam.options->camera = m_deviceIndex; // Select camera 0 or 1
+    m_cam.options->camera = m_deviceIndex; 
 
-    // 2. Enable Autofocus for Camera Module 3!
-    // Without this, Module 3 might be blurry depending on subject distance
-    //m_cam.options->autofocusMode = libcamera::controls::AfModeEnum::AfModeContinuous;
-
-    // 3. Start the libcamera stream
     m_cam.startVideo();
     m_isRunning = true;
-
-    std::cout << "[Camera] Opened Camera Module 3 natively via LCCV at " 
-              << m_width << "x" << m_height << " " << m_fps << "fps\n";
+    std::cout << "[Camera] Opened Camera Module 3 natively via LCCV\n";
+#endif
     return true;
 }
 
 bool Camera::readFrame(cv::Mat& frame) {
     if (!m_isRunning) return false;
 
-    // Grab the frame natively from the ISP into a cv::Mat
-    // The second parameter is a timeout in milliseconds
+#ifdef USING_OPENCV_CAM
+    m_cam.read(frame);
+    return !frame.empty();
+#else
     bool success = m_cam.getVideoFrame(frame, 1000);
-    
     return success && !frame.empty();
+#endif
 }
 
 void Camera::release() {
     if (m_isRunning) {
+#ifdef USING_OPENCV_CAM
+        m_cam.release();
+#else
         m_cam.stopVideo();
+#endif
         m_isRunning = false;
-        std::cout << "[Camera] Released libcamera stream.\n";
+        std::cout << "[Camera] Released camera stream.\n";
     }
 }

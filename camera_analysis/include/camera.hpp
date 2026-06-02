@@ -1,6 +1,10 @@
 #pragma once
 #include <opencv2/opencv.hpp>
-#include <lccv.hpp> // Include the new native libcamera wrapper
+
+// Only include the Raspberry Pi camera library if we are NOT on a simulated PC/WSL camera platform
+#ifndef USING_OPENCV_CAM
+    #include <lccv.hpp> 
+#endif
 
 class Camera {
 public:
@@ -16,8 +20,12 @@ private:
     int m_width;
     int m_height;
     int m_fps;
-
-    // Replace cv::VideoCapture with LCCV
-    lccv::PiCamera m_cam; 
     bool m_isRunning = false;
+
+    // Use standard OpenCV capture on PC/WSL environments, and lccv on the Pi hardware
+#ifdef USING_OPENCV_CAM
+    cv::VideoCapture m_cam;
+#else
+    lccv::PiCamera m_cam; 
+#endif
 };

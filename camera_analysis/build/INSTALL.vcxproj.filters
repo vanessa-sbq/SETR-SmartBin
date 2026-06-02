@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Utilizador\Documents\GitHub\SETR-SmartBin\camera_analysis\build\CMakeFiles\8be51678d4eb2a3de3d4e821cc7dedb6\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1FBBEA18-5542-36B9-9B65-E6B8BCD85BD8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

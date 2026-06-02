@@ -35,16 +35,26 @@ MotorCommand MotorController::compute(bool detected, cv::Point2f centroid, int b
         return cmd;
     }
 
+    // Change this block inside MotorController::compute:
+
     const float cx = static_cast<float>(m_fw) / 2.f;
     const float cy = static_cast<float>(m_fh) / 2.f;
 
-    float errX_px = centroid.x - cx;
+    // 1. Calculate how many pixels 15 cm (0.15 m) corresponds to at this distance
+    float physicalOffsetM = 0.15f; // 15 cm down
+    float pixelOffsetY = (physicalOffsetM * m_focalLengthPx) / distM;
+
+    // 2. Adjust our target Y-coordinate downward
+    float targetY = cy + pixelOffsetY;
+
+    // 3. Compute errors relative to the adjusted target point
+    float errX_px = centroid.x - cx; 
     if (std::abs(errX_px) > m_cfg.deadZoneX) {
         float errX_m = errX_px * distM / m_focalLengthPx;
         cmd.velX = clamp(errX_m, -m_cfg.maxVelX, m_cfg.maxVelX);
     }
 
-    float errY_px = centroid.y - cy;
+    float errY_px = centroid.y - targetY; // Error is now relative to targetY, not cy
     if (std::abs(errY_px) > m_cfg.deadZoneY) {
         float errY_m = errY_px * distM / m_focalLengthPx;
         cmd.velY = clamp(errY_m, -m_cfg.maxVelY, m_cfg.maxVelY);

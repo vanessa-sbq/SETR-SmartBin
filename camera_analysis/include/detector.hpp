@@ -26,12 +26,7 @@ public:
     explicit Detector(Config cfg = Config{});
 
     // isMoving: true when the can is currently executing a motor command.
-    // While moving:  MOG2 runs with a high learning rate to absorb background
-    //                shift, but detect() always returns detected=false.
-    // After stopping: detection is suppressed for cooldownFrames frames so
-    //                 MOG2 can stabilise before results are trusted again.
     DetectionResult detect(const cv::Mat& frame, bool isMoving);
-
     cv::Mat drawDebug(const cv::Mat& frame, const DetectionResult& result) const;
 
 private:
@@ -42,4 +37,11 @@ private:
 
     int  m_cooldownCounter = 0;   // frames remaining in post-motion cooldown
     bool m_wasMoving       = false;
+
+    // Cross-platform custom target-lock tracking features (Bypasses cv::TrackerKCF)
+    bool        m_isTracking = false;
+    int         m_trackingFramesLeft = 0;
+    cv::Scalar  m_lowColor;
+    cv::Scalar  m_highColor;
+    float       m_targetAspectRatio = 1.0f;
 };
