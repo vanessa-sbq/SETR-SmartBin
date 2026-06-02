@@ -20,6 +20,10 @@ endif()
 find_package(OpenCV REQUIRED COMPONENTS core imgproc video videoio highgui)
 message(STATUS "OpenCV version: ${OpenCV_VERSION}")
 
+#
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBCAMERA REQUIRED libcamera)
+
 # ── Sources ───────────────────────────────────────────────────────────────────
 set(SOURCES
     src/main.cpp
@@ -29,9 +33,8 @@ set(SOURCES
 )
 
 add_executable(trashcan ${SOURCES})
-
-target_include_directories(trashcan PRIVATE include)
-target_link_libraries(trashcan PRIVATE ${OpenCV_LIBS})
+target_include_directories(trashcan PRIVATE include ${LIBCAMERA_INCLUDE_DIRS})
+target_link_libraries(trashcan PRIVATE lccv ${LIBCAMERA_LIBRARIES} ${OpenCV_LIBS})
 target_link_options(trashcan PRIVATE -Wl,--allow-shlib-undefined)
 
 # ── Install ───────────────────────────────────────────────────────────────────

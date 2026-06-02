@@ -9,9 +9,9 @@ namespace Config {
 
     // ── Camera ────────────────────────────────────────────────────────────────
     constexpr int   DEVICE_INDEX = 0;       // 0 = first camera; override via argv
-    constexpr int   FRAME_W      = 320;     // 16:9 width  — lower = faster MOG2
-    constexpr int   FRAME_H      = 180;     // 16:9 height — quarter pixels vs 640×360
-    constexpr int   FRAME_FPS    = 60;
+    constexpr int   FRAME_W      = 640;     // 16:9 width  — lower = faster MOG2
+    constexpr int   FRAME_H      = 480;     // 16:9 height — quarter pixels vs 640×360
+    constexpr int   FRAME_FPS    = 30;
 
     // ── Lens FOV (degrees) ───────────────────────────────────────────────────
     constexpr float H_FOV_DEG    = 78.f;    // horizontal FOV of your phone camera

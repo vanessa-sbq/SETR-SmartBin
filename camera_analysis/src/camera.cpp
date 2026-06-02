@@ -9,31 +9,39 @@ Camera::~Camera() {
 }
 
 bool Camera::open() {
-    m_cap.open(m_deviceIndex, cv::CAP_V4L2);  // V4L2 works best on Linux/Pi
-    if (!m_cap.isOpened()) {
-        // Fallback: try default backend (works on macOS/Windows for testing)
-        m_cap.open(m_deviceIndex);
-    }
-    if (!m_cap.isOpened()) {
-        std::cerr << "[Camera] Failed to open device " << m_deviceIndex << "\n";
-        return false;
-    }
+    // 1. Configure the native libcamera options
+    m_cam.options->video_width = m_width;
+    m_cam.options->video_height = m_height;
+    m_cam.options->framerate = m_fps;
+    m_cam.options->camera = m_deviceIndex; // Select camera 0 or 1
 
-    m_cap.set(cv::CAP_PROP_FRAME_WIDTH,  m_width);
-    m_cap.set(cv::CAP_PROP_FRAME_HEIGHT, m_height);
-    m_cap.set(cv::CAP_PROP_FPS,          m_fps);
+    // 2. Enable Autofocus for Camera Module 3!
+    // Without this, Module 3 might be blurry depending on subject distance
+    //m_cam.options->autofocusMode = libcamera::controls::AfModeEnum::AfModeContinuous;
 
-    std::cout << "[Camera] Opened device " << m_deviceIndex
-              << " at " << m_width << "x" << m_height << " " << m_fps << "fps\n";
+    // 3. Start the libcamera stream
+    m_cam.startVideo();
+    m_isRunning = true;
+
+    std::cout << "[Camera] Opened Camera Module 3 natively via LCCV at " 
+              << m_width << "x" << m_height << " " << m_fps << "fps\n";
     return true;
 }
 
 bool Camera::readFrame(cv::Mat& frame) {
-    return m_cap.read(frame) && !frame.empty();
+    if (!m_isRunning) return false;
+
+    // Grab the frame natively from the ISP into a cv::Mat
+    // The second parameter is a timeout in milliseconds
+    bool success = m_cam.getVideoFrame(frame, 1000);
+    
+    return success && !frame.empty();
 }
 
 void Camera::release() {
-    if (m_cap.isOpened()) {
-        m_cap.release();
+    if (m_isRunning) {
+        m_cam.stopVideo();
+        m_isRunning = false;
+        std::cout << "[Camera] Released libcamera stream.\n";
     }
 }

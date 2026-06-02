@@ -1,0 +1,7 @@
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/trashcan.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/edit_cache.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/list_install_components.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/install.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/install/local.dir
+/home/pi/Desktop/camera_analysis/build/CMakeFiles/install/strip.dir
