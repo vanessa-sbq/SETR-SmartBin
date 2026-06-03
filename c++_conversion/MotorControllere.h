@@ -98,16 +98,17 @@ public:
     void upper_left(uint16_t speed);
     void lower_right(uint16_t speed);
     void move_individual(std::vector<double> speeds);
+    void rr_back();
+    void fr_ahead();
+    void fl_ahead();
+    void rl_back();
+    void fr_back();
+    void rr_ahead();
+    void rl_ahead();
+    void fl_back();
 
 private:
-    void rr_ahead();
-    void rr_back();
-    void rl_ahead();
-    void rl_back();
-    void fr_ahead();
-    void fr_back();
-    void fl_ahead();
-    void fl_back();
+   
 
     void set_line(unsigned int offset, int value);
 

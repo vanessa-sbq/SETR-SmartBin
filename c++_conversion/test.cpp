@@ -130,7 +130,6 @@ std::vector<double> calculateOmniWheelSpeeds(double vx, double vy, double omega,
     wheelSpeeds.push_back(v_fl);
     wheelSpeeds.push_back(v_rr);
     wheelSpeeds.push_back(v_rl);
-  
 
    return wheelSpeeds;
 }
@@ -147,8 +146,8 @@ int main() {
         pwm.set_pwm(1,0,1000);//20479);
         pwm.set_pwm(2,0,990);//20479);
         pwm.set_pwm(3,0,1000);//20479); */
-        float vx = -0.02;
-        float vy = -0.02;
+        float vx = 0.02;
+        float vy = 0.04;
         
         std::vector<double> wheel_speeds = calculateOmniWheelSpeeds(vx, vy, 0, 0);
         
@@ -157,10 +156,13 @@ int main() {
         uint16_t pwmSpeed3 = meters_per_sec_to_pwm(abs(wheel_speeds[2]));
         uint16_t pwmSpeed4 = meters_per_sec_to_pwm(abs(wheel_speeds[3]));
         std::cout << "Wheel speeds: " << wheel_speeds[0] << " " << wheel_speeds[1] << " " << wheel_speeds[2] << " " << wheel_speeds[3] << "\n";
-        pwm.set_pwm(0,0, pwmSpeed1); // Front right
+        
+
+        pwm.set_pwm(0,0, pwmSpeed1); // Front Right
         pwm.set_pwm(1,0, pwmSpeed2); // Front Left
-        pwm.set_pwm(2,0, pwmSpeed3); // Back right
-        pwm.set_pwm(3,0, pwmSpeed4); // Back Left
+        pwm.set_pwm(2,0, pwmSpeed3); // Rear Right
+        pwm.set_pwm(3,0, pwmSpeed4); // Rear Left
+
         MotorPins pins;
         MotorController motors("/dev/gpiochip0", pins/* , pwm */);
 
