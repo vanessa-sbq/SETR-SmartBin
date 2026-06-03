@@ -18,27 +18,35 @@ namespace Config {
     constexpr float V_FOV_DEG    = 43.9f;   // = H_FOV * (9/16) for 16:9 sensor
 
     // ── Detector ─────────────────────────────────────────────────────────────
-    constexpr int   DET_MIN_AREA        = 400;  // px² — lower to match smaller resolution
-    constexpr int   DET_HISTORY         = 60;   // shorter history = faster background re-learn
-    constexpr float DET_VAR_THRESHOLD   = 40.f; // MOG2 sensitivity — lower = more sensitive
+    constexpr int   DET_MIN_AREA        = 80;   // px²
     constexpr int   DET_ERODE_ITER      = 1;
     constexpr int   DET_DILATE_ITER     = 2;
 
-    // How many frames to skip detection after the can stops moving.
-    // Gives MOG2 time to re-learn the new background before trusting detections.
-    constexpr int   DET_COOLDOWN_FRAMES = 3;
+    // HSV color filter (orange/yellow ball)
+    constexpr int   DET_HSV_LO_H        = 12;
+    constexpr int   DET_HSV_LO_S        = 80;
+    constexpr int   DET_HSV_LO_V        = 80;
+    constexpr int   DET_HSV_HI_H        = 42;
+    constexpr int   DET_HSV_HI_S        = 255;
+    constexpr int   DET_HSV_HI_V        = 255;
 
-    // MOG2 learning rate while the can is moving (fast re-learn of new background).
-    // -1 = automatic (used when stationary).
-    constexpr float DET_MOVING_LEARN_RATE = 0.5f;
+    constexpr float DET_MIN_CIRCULARITY = 0.4f; // discard non-round blobs
+    constexpr float DET_MAX_DIST_M      = 2.0f; // ignore detections beyond this
 
-    // ── Motor ─────────────────────────────────────────────────────────────────
-    constexpr float MOT_DEAD_ZONE_X      = 15.f;  // px — scale down with resolution
-    constexpr float MOT_DEAD_ZONE_Y      = 15.f;
-    constexpr float MOT_MAX_VEL_X        = 0.1f;  // m/s — max strafe speed
-    constexpr float MOT_MAX_VEL_Y        = 0.1f;  // m/s — max fwd/back speed
-    constexpr float MOT_OBJECT_HEIGHT_M  = 0.15f; // real height of tracked object (m)
+    // ── Motor / P-controller ─────────────────────────────────────────────────
+    constexpr float MOT_OBJECT_HEIGHT_M  = 0.15f; // real size of tracked object (m)
                                                    // tennis ball=0.067, bottle=0.22
+    constexpr float MOT_KP_X             = 0.5f;  // gain: robot_x (m) → forward vel (m/s)
+    constexpr float MOT_KP_Y             = 0.5f;  // gain: robot_y (m) → lateral vel (m/s)
+    constexpr float MOT_MAX_V            = 0.3f;  // m/s velocity cap
+    constexpr float MOT_EMA_ALPHA        = 0.4f;  // centroid/distance smoothing factor
+
+    // ── Mecanum chassis (OSOYOO FlexiRover 2024007500) ───────────────────────
+    constexpr float MECH_WHEEL_RADIUS    = 0.040f;  // m  (80 mm diameter)
+    constexpr float MECH_LX              = 0.0475f; // m  half wheelbase
+    constexpr float MECH_LY              = 0.103f;  // m  half track width
+    constexpr float MECH_MAX_WHEEL_SPD   = 1.0f;    // normalized -1..1
+    constexpr float MECH_CAM_OFFSET_Y    = 0.13f;   // m  camera Y offset from robot centre
 
     // ── Display ───────────────────────────────────────────────────────────────
     constexpr bool  SHOW_WINDOW = true;   // keep false on Pi — imshow is expensive

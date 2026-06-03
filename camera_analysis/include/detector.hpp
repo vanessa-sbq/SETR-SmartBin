@@ -10,13 +10,17 @@ struct DetectionResult {
 };
 
 struct DetectorConfig {
-    int   history          = Config::DET_HISTORY;
-    float varThreshold     = Config::DET_VAR_THRESHOLD;
-    int   minArea          = Config::DET_MIN_AREA;
-    int   dilateIterations = Config::DET_DILATE_ITER;
-    int   erodeIterations  = Config::DET_ERODE_ITER;
-    int   cooldownFrames   = Config::DET_COOLDOWN_FRAMES;
-    float movingLearnRate  = Config::DET_MOVING_LEARN_RATE;
+    int        minArea          = Config::DET_MIN_AREA;
+    int        erodeIterations  = Config::DET_ERODE_ITER;
+    int        dilateIterations = Config::DET_DILATE_ITER;
+    cv::Scalar lowerHSV        = { Config::DET_HSV_LO_H,
+                                   Config::DET_HSV_LO_S,
+                                   Config::DET_HSV_LO_V };
+    cv::Scalar upperHSV        = { Config::DET_HSV_HI_H,
+                                   Config::DET_HSV_HI_S,
+                                   Config::DET_HSV_HI_V };
+    float      minCircularity   = Config::DET_MIN_CIRCULARITY;
+    float      maxDistanceM     = Config::DET_MAX_DIST_M;
 };
 
 class Detector {
@@ -25,23 +29,16 @@ public:
 
     explicit Detector(Config cfg = Config{});
 
-    // isMoving: true when the can is currently executing a motor command.
-    DetectionResult detect(const cv::Mat& frame, bool isMoving);
+    DetectionResult detect(const cv::Mat& frame, bool isMoving = false);
+
     cv::Mat drawDebug(const cv::Mat& frame, const DetectionResult& result) const;
 
 private:
-    Config                                m_cfg;
-    cv::Ptr<cv::BackgroundSubtractorMOG2> m_bgsub;
-    cv::Mat                               m_mask;
-    cv::Mat                               m_kernel;   // pre-allocated, never reallocated
+    Config  m_cfg;
+    cv::Mat m_hsv;
+    cv::Mat m_mask;
+    cv::Mat m_kernel;
 
-    int  m_cooldownCounter = 0;   // frames remaining in post-motion cooldown
-    bool m_wasMoving       = false;
-
-    // Cross-platform custom target-lock tracking features (Bypasses cv::TrackerKCF)
-    bool        m_isTracking = false;
-    int         m_trackingFramesLeft = 0;
-    cv::Scalar  m_lowColor;
-    cv::Scalar  m_highColor;
-    float       m_targetAspectRatio = 1.0f;
+    double m_focalPx;      // derived from FRAME_W and H_FOV_DEG
+    double m_objectSizeCm; // derived from MOT_OBJECT_HEIGHT_M
 };

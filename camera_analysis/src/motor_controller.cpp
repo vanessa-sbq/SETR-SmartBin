@@ -2,65 +2,110 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <chrono>
+
+static void mecanumIK(float vx, float vy, float omega,
+                      float wheelRadius, float lx, float ly, float maxWheelSpd,
+                      float& fl, float& fr, float& rl, float& rr)
+{
+    float k = lx + ly;
+    fl = (vx - vy - omega * k) / wheelRadius;
+    fr = (vx + vy + omega * k) / wheelRadius;
+    rl = (vx + vy - omega * k) / wheelRadius;
+    rr = (vx - vy + omega * k) / wheelRadius;
+
+    float maxW = std::max({std::abs(fl), std::abs(fr), std::abs(rl), std::abs(rr), 1e-9f});
+    float limit = maxWheelSpd / wheelRadius;
+    if (maxW > limit) {
+        float scale = limit / maxW;
+        fl *= scale; fr *= scale; rl *= scale; rr *= scale;
+    }
+
+    float norm = wheelRadius / maxWheelSpd;
+    fl *= norm; fr *= norm; rl *= norm; rr *= norm;
+}
 
 MotorController::MotorController(int frameWidth, int frameHeight, Config cfg)
     : m_fw(frameWidth), m_fh(frameHeight), m_cfg(cfg)
 {
-    float vFovRad   = m_cfg.vFovDeg * 3.14159265f / 180.f;
-    m_focalLengthPx = (static_cast<float>(m_fh) / 2.f) / std::tan(vFovRad / 2.f);
+    float hFovRad   = m_cfg.hFovDeg * 3.14159265f / 180.f;
+    m_focalLengthPx = (static_cast<float>(m_fw) / 2.f) / std::tan(hFovRad / 2.f);
 }
 
-static float estimateDistance(float realHeightM, float focalPx, int bboxHeightPx) {
-    if (bboxHeightPx <= 0) return 0.f;
-    return (realHeightM * focalPx) / static_cast<float>(bboxHeightPx);
-}
-
-MotorCommand MotorController::compute(bool detected, cv::Point2f centroid, int bboxHeight) {
-    MotorCommand cmd{0.f, 0.f, 0.f, true};
+MotorCommand MotorController::compute(bool detected, cv::Point2f centroid, cv::Rect bbox) {
+    MotorCommand cmd{};
+    cmd.stop = true;
 
     if (!detected) {
-        m_moving = false;
+        m_moving   = false;
+        m_smoothCx = -1.f;
+        m_hasPrev  = false;
         printCommand(cmd);
         return cmd;
     }
 
     cmd.stop = false;
 
-    float distM = estimateDistance(m_cfg.objectRealHeightM, m_focalLengthPx, bboxHeight);
-    cmd.distanceM = distM;
+    // ── EMA smoothing ─────────────────────────────────────────────────────────
+    float cx      = centroid.x;
+    float cy      = centroid.y;
+    float pixSize = static_cast<float>(std::max(bbox.width, bbox.height));
+    float dist    = (pixSize > 0.f)
+                    ? (m_cfg.objectSizeCm * m_focalLengthPx) / pixSize
+                    : 0.f;   // cm
 
-    if (distM <= 0.05f) {
-        m_moving = false;
-        printCommand(cmd);
-        return cmd;
+    if (m_smoothCx < 0.f) {
+        m_smoothCx = cx;  m_smoothCy = cy;  m_smoothDist = dist;
+    } else {
+        const float a = m_cfg.emaAlpha;
+        m_smoothCx   = a * cx   + (1.f - a) * m_smoothCx;
+        m_smoothCy   = a * cy   + (1.f - a) * m_smoothCy;
+        if (dist > 0.f)
+            m_smoothDist = a * dist + (1.f - a) * m_smoothDist;
     }
 
-    // Change this block inside MotorController::compute:
+    cmd.distanceM = m_smoothDist / 100.f;
 
-    const float cx = static_cast<float>(m_fw) / 2.f;
-    const float cy = static_cast<float>(m_fh) / 2.f;
+    // ── Robot-frame position ──────────────────────────────────────────────────
+    // Camera looks up: optical axis = Z (height above floor).
+    // Image vertical  → robot X axis (front/back).
+    // Image horizontal → robot Y axis (left/right), camera 13 cm off centre.
+    float cmPerPx = m_smoothDist / m_focalLengthPx;
+    float imgCx   = static_cast<float>(m_fw) / 2.f;
+    float imgCy   = static_cast<float>(m_fh) / 2.f;
+    float robotX  = (imgCy - m_smoothCy) * cmPerPx / 100.f;
+    float robotY  = -(m_smoothCx - imgCx) * cmPerPx / 100.f + m_cfg.camOffsetY;
 
-    // 1. Calculate how many pixels 15 cm (0.15 m) corresponds to at this distance
-    float physicalOffsetM = 0.15f; // 15 cm down
-    float pixelOffsetY = (physicalOffsetM * m_focalLengthPx) / distM;
-
-    // 2. Adjust our target Y-coordinate downward
-    float targetY = cy + pixelOffsetY;
-
-    // 3. Compute errors relative to the adjusted target point
-    float errX_px = centroid.x - cx; 
-    if (std::abs(errX_px) > m_cfg.deadZoneX) {
-        float errX_m = errX_px * distM / m_focalLengthPx;
-        cmd.velX = clamp(errX_m, -m_cfg.maxVelX, m_cfg.maxVelX);
+    // ── Ball velocity (pixel-delta / Δt) ──────────────────────────────────────
+    auto now = std::chrono::steady_clock::now();
+    if (m_hasPrev && m_prevDist > 0.f) {
+        float dt = std::chrono::duration<float>(now - m_prevTime).count();
+        if (dt > 0.f) {
+            cmd.ballVx = -(m_smoothCy - m_prevCy) * cmPerPx / 100.f / dt;
+            cmd.ballVy = -(m_smoothCx - m_prevCx) * cmPerPx / 100.f / dt;
+            cmd.ballVz = (m_smoothDist - m_prevDist) / 100.f / dt;
+        }
     }
+    m_prevCx   = m_smoothCx;
+    m_prevCy   = m_smoothCy;
+    m_prevDist = m_smoothDist;
+    m_prevTime = now;
+    m_hasPrev  = true;
 
-    float errY_px = centroid.y - targetY; // Error is now relative to targetY, not cy
-    if (std::abs(errY_px) > m_cfg.deadZoneY) {
-        float errY_m = errY_px * distM / m_focalLengthPx;
-        cmd.velY = clamp(errY_m, -m_cfg.maxVelY, m_cfg.maxVelY);
-    }
+    // ── P-controller ──────────────────────────────────────────────────────────
+    float pVx  = clamp( m_cfg.kpX * robotX, -m_cfg.maxV, m_cfg.maxV);
+    float pVy  = clamp(-m_cfg.kpY * robotY, -m_cfg.maxV, m_cfg.maxV);
 
-    m_moving = (cmd.velX != 0.f || cmd.velY != 0.f);
+    cmd.velX = pVx;
+    cmd.velY = pVy;
+
+    // ── Mecanum IK ────────────────────────────────────────────────────────────
+    mecanumIK(pVx, pVy, 0.f,
+              m_cfg.wheelRadius, m_cfg.lx, m_cfg.ly, m_cfg.maxWheelSpeed,
+              cmd.wheelFL, cmd.wheelFR, cmd.wheelRL, cmd.wheelRR);
+
+    m_moving = (cmd.wheelFL != 0.f || cmd.wheelFR != 0.f ||
+                cmd.wheelRL != 0.f || cmd.wheelRR != 0.f);
     printCommand(cmd);
     return cmd;
 }
@@ -70,39 +115,24 @@ void MotorController::printCommand(const MotorCommand& cmd) {
         std::cout << "[MOTOR] STOP\n";
         return;
     }
+    std::cout << std::fixed << std::setprecision(3)
+              << "[MOTOR] dist=" << std::setw(6) << cmd.distanceM << "m"
+              << "  velX=" << std::setw(7) << cmd.velX
+              << "  velY=" << std::setw(7) << cmd.velY;
 
-    const float THRESHOLD = 0.01f;
-    float vx = std::abs(cmd.velX) >= THRESHOLD ? cmd.velX : 0.f;
-    float vy = std::abs(cmd.velY) >= THRESHOLD ? cmd.velY : 0.f;
-
-    std::string dir;
-    if      (vy >  0.f) dir += "FWD ";
-    else if (vy <  0.f) dir += "BWD ";
-    if      (vx >  0.f) dir += "RIGHT";
-    else if (vx <  0.f) dir += "LEFT ";
-    if (dir.empty())    dir  = "HOLD";
-
-    bool moving = (vx != 0.f || vy != 0.f);
-    int  angle  = 0;
-    if (moving) {
-        float a = std::atan2(vy, vx) * 180.f / 3.14159265f;
-        if (a < 0.f)    a += 360.f;
-        if (a >= 360.f) a  = 0.f;
-        angle = static_cast<int>(std::round(a));
+    if (cmd.ballVx != 0.f || cmd.ballVy != 0.f || cmd.ballVz != 0.f) {
+        std::cout << std::setprecision(2)
+                  << "  ball vx=" << std::setw(6) << cmd.ballVx
+                  << " vy=" << std::setw(6) << cmd.ballVy
+                  << " vz=" << std::setw(6) << cmd.ballVz;
     }
 
-    std::cout << std::fixed << std::setprecision(3)
-              << "[MOTOR] velX=" << std::setw(7) << cmd.velX << " m/s"
-              << "  velY=" << std::setw(7) << cmd.velY << " m/s"
-              << "  dist=" << std::setw(5) << cmd.distanceM << " m"
-              << "  (" << dir << ")";
-
-    if (moving)
-        std::cout << "  angle=" << std::setw(3) << angle << "deg";
-    else
-        std::cout << "  angle= N/A";
-
-    std::cout << "\n";
+    std::cout << std::setprecision(2)
+              << "  | FL=" << std::setw(5) << cmd.wheelFL
+              << " FR=" << std::setw(5) << cmd.wheelFR
+              << " RL=" << std::setw(5) << cmd.wheelRL
+              << " RR=" << std::setw(5) << cmd.wheelRR
+              << "\n";
 }
 
 float MotorController::clamp(float v, float lo, float hi) const {
