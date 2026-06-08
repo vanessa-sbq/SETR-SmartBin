@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
     int deviceIndex = (argc > 1) ? std::stoi(argv[1]) : Config::DEVICE_INDEX;
 
     Camera cam(deviceIndex, Config::FRAME_W, Config::FRAME_H, Config::FRAME_FPS);
-    auto detector = makeDetector(DetectorKind::Hsv); // TODO: Select algorithm to use for detection
+    auto detector = makeDetector(DetectorKind::Kalman); // TODO: Select algorithm to use for detection
     MotorTranslation motor(Config::FRAME_W, Config::FRAME_H);
 
     if (!cam.open()) {

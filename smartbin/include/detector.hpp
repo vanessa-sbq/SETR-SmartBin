@@ -36,18 +36,19 @@ class IDetector {
 public:
     virtual ~IDetector() = default;
 
-    // Run one detection pass. isMoving lets stateful algorithms manage learning
-    // rate / cooldown (e.g. background subtraction).
+    // Run one detection pass
     virtual DetectionResult detect(const cv::Mat& frame, bool isMoving = false) = 0;
 
-    // Shared across all algorithms — only reads DetectionResult, so it is
-    // implemented once in detector_common.cpp and is intentionally non-virtual.
+    // Debug function shared across all algorithms
     cv::Mat drawDebug(const cv::Mat& frame, const DetectionResult& result) const;
+
+protected:
+    // Funciton for algorithm-specific debug drawing (e.g. Kalman trajectory)
+    virtual void drawOverlay(cv::Mat& /*out*/) const {}
 };
 
 // Algorithm selection 
 enum class DetectorKind {
-    // TODO: Change names
     Hsv,    // detector_hsv.cpp     - HSV colour threshold + contour/circularity
     BgSub,  // detector_bgsub.cpp   - background subtraction (motion)
     Kalman, // detector_kalman.cpp  - Kalman filters based

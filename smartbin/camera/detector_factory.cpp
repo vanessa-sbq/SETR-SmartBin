@@ -33,5 +33,14 @@ cv::Mat IDetector::drawDebug(const cv::Mat& frame, const DetectionResult& result
                     cv::FONT_HERSHEY_SIMPLEX, 0.6, {0, 0, 255}, 2);
     }
 
+    // Robot coordinate frame at the image centre
+    cv::Point centre(out.cols / 2, out.rows / 2);
+    const int axLen = 60;
+    cv::arrowedLine(out, centre, centre + cv::Point(0, -axLen), {0, 255, 0}, 2, cv::LINE_AA, 0, 0.2); // +Y up
+    cv::arrowedLine(out, centre, centre + cv::Point(axLen, 0), {0, 255, 0}, 2, cv::LINE_AA, 0, 0.2);  // +X Right
+    cv::putText(out, "+Y", centre + cv::Point(4, -axLen - 4), cv::FONT_HERSHEY_SIMPLEX, 0.45, {0, 255, 0}, 1);
+    cv::putText(out, "+X", centre + cv::Point(axLen + 26, 4), cv::FONT_HERSHEY_SIMPLEX, 0.45, {0, 255, 0}, 1);
+
+    drawOverlay(out); // algorithm-specific extras (e.g. Kalman trajectory)
     return out;
 }
