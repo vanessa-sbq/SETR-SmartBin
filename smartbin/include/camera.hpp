@@ -1,6 +1,12 @@
 #pragma once
 #include <opencv2/opencv.hpp>
-#include <lccv.hpp> // Include the new native libcamera wrapper
+
+// On the Raspberry Pi we grab frames natively through libcamera (LCCV).
+// On a desktop (SMARTBIN_DESKTOP) we fall back to OpenCV's VideoCapture so the
+// camera/detector pipeline can be tested with a USB webcam or DroidCam.
+#ifndef SMARTBIN_DESKTOP
+#include <lccv.hpp> // native libcamera wrapper (Pi only)
+#endif
 
 class Camera {
 public:
@@ -17,6 +23,10 @@ private:
     int m_height;
     int m_fps;
 
-    lccv::PiCamera m_cam; 
+#ifdef SMARTBIN_DESKTOP
+    cv::VideoCapture m_cam;
+#else
+    lccv::PiCamera m_cam;
+#endif
     bool m_isRunning = false;
 };
