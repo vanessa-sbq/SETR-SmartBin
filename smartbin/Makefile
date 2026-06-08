@@ -12,7 +12,10 @@ TARGET := smartbin
 # Sources shared by both platforms
 SRCS := main.cpp \
         camera/camera.cpp \
-        camera/detector.cpp \
+        camera/detector_hsv.cpp \
+        camera/detector_bgsub.cpp \
+        camera/detector_kalman.cpp \
+        camera/detector_factory.cpp \
         camera/motor_translation.cpp
 
 ifeq ($(PLATFORM),desktop)

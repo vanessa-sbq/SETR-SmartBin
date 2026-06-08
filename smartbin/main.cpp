@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
 
     int deviceIndex = (argc > 1) ? std::stoi(argv[1]) : Config::DEVICE_INDEX;
 
-    Camera          cam(deviceIndex, Config::FRAME_W, Config::FRAME_H, Config::FRAME_FPS);
-    Detector        detector;
+    Camera cam(deviceIndex, Config::FRAME_W, Config::FRAME_H, Config::FRAME_FPS);
+    auto detector = makeDetector(DetectorKind::Hsv); // TODO: Select algorithm to use for detection
     MotorTranslation motor(Config::FRAME_W, Config::FRAME_H);
 
     if (!cam.open()) {
@@ -46,13 +46,13 @@ int main(int argc, char* argv[]) {
         // Ask the motor controller if the can is currently moving, then pass
         // that flag to the detector so it can manage learning rate + cooldown.
         bool moving = motor.isMoving();
-        DetectionResult det = detector.detect(frame, moving);
+        DetectionResult det = detector->detect(frame, moving);
 
         MotorCommand cmd = motor.compute(det.detected, det.centroid, det.boundingBox);
         if (hwOk) hardwareApply(cmd);
 
         if (Config::SHOW_WINDOW) {
-            cv::Mat debug = detector.drawDebug(frame, det);
+            cv::Mat debug = detector->drawDebug(frame, det);
 
             cv::Point centre(Config::FRAME_W / 2, Config::FRAME_H / 2);
             cv::drawMarker(debug, centre, {255, 255, 0}, cv::MARKER_CROSS, 24, 1);
