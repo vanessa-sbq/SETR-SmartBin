@@ -7,12 +7,12 @@ namespace Config {
 
     // Camera
     constexpr int   DEVICE_INDEX = 0;       // 0 = first camera; override via argv
-    constexpr int   FRAME_W      = 1920;     // 16:9 width  — lower = faster MOG2
-    constexpr int   FRAME_H      = 1920;     // 16:9 height — quarter pixels vs 640×360
+    constexpr int   FRAME_W      = 1920;     // 16:9 width  - lower = faster MOG2
+    constexpr int   FRAME_H      = 1920;     // 16:9 height - quarter pixels vs 640×360
     constexpr int   FRAME_FPS    = 30;
 
     // Lens FOV (degrees)
-    constexpr float H_FOV_DEG    = 102.f;   // horizontal FOV — Pi Camera Module 3 Wide
+    constexpr float H_FOV_DEG    = 102.f;   // horizontal FOV - Pi Camera Module 3 Wide
     constexpr float V_FOV_DEG    = 76.5f;   // = H_FOV * (3/4) for 4:3 sensor (640×480)
 
     // Detector
@@ -57,5 +57,30 @@ namespace Config {
 
     // Display
     constexpr bool  SHOW_WINDOW = false; // keep false on Pi (imshow is expensive)
+
+    // Real-time tasks - SCHED_DEADLINE parameters in nanoseconds.
+    // Kernel requires runtime (C) <= deadline (D) <= period (T).
+    // Vision Detection: periodic, paced by the camera (30 fps)
+    constexpr long long TASK_VISION_RUNTIME_NS  =  20'000'000;
+    constexpr long long TASK_VISION_DEADLINE_NS =  33'333'333;
+    constexpr long long TASK_VISION_PERIOD_NS   =  33'333'333;
+
+    // Trajectory Prediction: sporadic, released by a detection event;
+    // minimum inter-arrival time = camera period. D < T: a prediction
+    // delivered close to the next frame is useless.
+    constexpr long long TASK_PRED_RUNTIME_NS    =   3'000'000;
+    constexpr long long TASK_PRED_DEADLINE_NS   =  10'000'000;
+    constexpr long long TASK_PRED_PERIOD_NS     =  33'333'333;
+
+    // Motor Control: periodic 50 Hz control loop. D < T so urgent commands
+    // (e.g. stop) land early in the cycle.
+    constexpr long long TASK_MOTOR_RUNTIME_NS   =   2'000'000;
+    constexpr long long TASK_MOTOR_DEADLINE_NS  =   5'000'000;
+    constexpr long long TASK_MOTOR_PERIOD_NS    =  20'000'000;
+
+    // Operation Interface: low-rate housekeeping (start/stop, debug display)
+    constexpr long long TASK_UI_RUNTIME_NS      =   5'000'000;
+    constexpr long long TASK_UI_DEADLINE_NS     = 100'000'000;
+    constexpr long long TASK_UI_PERIOD_NS       = 100'000'000;
 
 } // namespace Config
