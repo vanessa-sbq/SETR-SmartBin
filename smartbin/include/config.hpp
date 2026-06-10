@@ -7,8 +7,8 @@ namespace Config {
 
     // Camera
     constexpr int   DEVICE_INDEX = 0;       // 0 = first camera; override via argv
-    constexpr int   FRAME_W      = 640;     // 16:9 width  — lower = faster MOG2
-    constexpr int   FRAME_H      = 480;     // 16:9 height — quarter pixels vs 640×360
+    constexpr int   FRAME_W      = 1920;     // 16:9 width  — lower = faster MOG2
+    constexpr int   FRAME_H      = 1920;     // 16:9 height — quarter pixels vs 640×360
     constexpr int   FRAME_FPS    = 30;
 
     // Lens FOV (degrees)
@@ -56,6 +56,6 @@ namespace Config {
     constexpr float MECH_CAM_OFFSET_Y    = 0.13f;   // m  camera Y offset from robot centre
 
     // Display
-    constexpr bool  SHOW_WINDOW = true; // keep false on Pi (imshow is expensive)
+    constexpr bool  SHOW_WINDOW = false; // keep false on Pi (imshow is expensive)
 
 } // namespace Config
