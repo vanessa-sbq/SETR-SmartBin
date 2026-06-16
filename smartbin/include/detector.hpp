@@ -1,6 +1,7 @@
 #pragma once
 #include <opencv2/opencv.hpp>
 #include <memory>
+#include <string>
 #include "config.hpp"
 
 // Every detection algorithm implements IDetector (one .cpp per algorithm, e.g. detector_hsv.cpp). 
@@ -15,18 +16,30 @@ struct DetectionResult {
     cv::Rect boundingBox;
 };
 
+// Lightweight learned "is this pixel yellow" model.
+// A 2-D Gaussian over (Hue, Saturation). Scoring is a single Mahalanobis²
+// distance, so it runs as fast as the old inRange but adapts to the real object
+// colour/lighting once fitted. No external dependencies, no model files needed.
+struct YellowColorModel {
+    cv::Vec2f   mean   { Config::DET_COLOR_MEAN_H, Config::DET_COLOR_MEAN_S };
+    cv::Matx22f invCov { 1.f / Config::DET_COLOR_VAR_H, 0.f,
+                         0.f, 1.f / Config::DET_COLOR_VAR_S };
+    float       threshold = Config::DET_COLOR_GATE;   // Mahalanobis² gate
+
+    // Fit mean + covariance from labelled yellow pixels (N×2 CV_32F rows of [H,S]).
+    void fit(const cv::Mat& samplesHS);
+
+    // Tiny text serialization so a fitted model survives restarts.
+    bool save(const std::string& path) const;
+    bool load(const std::string& path);
+};
+
 struct DetectorConfig {
     int minArea = Config::DET_MIN_AREA;
     int erodeIterations = Config::DET_ERODE_ITER;
     int dilateIterations = Config::DET_DILATE_ITER;
-    cv::Scalar lowerHSV = { 
-        Config::DET_HSV_LO_H,
-        Config::DET_HSV_LO_S,
-        Config::DET_HSV_LO_V };
-    cv::Scalar upperHSV = { 
-        Config::DET_HSV_HI_H,
-        Config::DET_HSV_HI_S,
-        Config::DET_HSV_HI_V };
+    YellowColorModel colorModel {};
+    int minValue = Config::DET_COLOR_MIN_V;   // reject near-black pixels
     float minCircularity = Config::DET_MIN_CIRCULARITY;
     float maxDistanceM = Config::DET_MAX_DIST_M;
 };

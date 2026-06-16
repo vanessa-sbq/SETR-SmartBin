@@ -9,7 +9,7 @@
 static std::unique_ptr<PiPCA9685::PCA9685> g_pwm;
 static std::unique_ptr<MotorController>    g_motors;
 
-// Normalized wheel speed (-1..1) → PCA9685 on-time (0..4095).
+// Normalized wheel speed (-1..1) -> PCA9685 on-time (0..4095).
 static uint16_t toPwm(float v) {
     float mag = std::abs(v);
     if (mag > 1.f) mag = 1.f;
@@ -43,16 +43,17 @@ void hardwareApply(const MotorCommand& cmd) {
         return;
     }
 
-    // move_individual sets GPIO direction for each wheel based on sign.
-    // Order expected by move_individual: [FR, FL, RR, RL]
-    g_motors->move_individual({cmd.wheelFR, cmd.wheelFL, cmd.wheelRR, cmd.wheelRL});
-
     // PCA9685 channels (same mapping as test.cpp):
     //   0 = FR, 1 = FL, 2 = RR, 3 = RL
     g_pwm->set_pwm(0, 0, toPwm(cmd.wheelFR));
     g_pwm->set_pwm(1, 0, toPwm(cmd.wheelFL));
     g_pwm->set_pwm(2, 0, toPwm(cmd.wheelRR));
     g_pwm->set_pwm(3, 0, toPwm(cmd.wheelRL));
+
+    // move_individual sets GPIO direction for each wheel based on sign.
+    // Order expected by move_individual: [FR, FL, RR, RL]
+    g_motors->move_individual({cmd.wheelFR, cmd.wheelFL, cmd.wheelRR, cmd.wheelRL});
+
 }
 
 void hardwareShutdown() {

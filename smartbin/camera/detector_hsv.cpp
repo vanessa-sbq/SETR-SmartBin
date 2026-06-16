@@ -1,6 +1,8 @@
 #include "detector_hsv.hpp"
 #include "config.hpp"
 #include <cmath>
+#include <fstream>
+#include <iostream>
 
 HsvDetector::HsvDetector(DetectorConfig cfg) : m_cfg(cfg) {
     // focal length in pixels from horizontal FOV
@@ -9,14 +11,31 @@ HsvDetector::HsvDetector(DetectorConfig cfg) : m_cfg(cfg) {
     m_kernel = cv::getStructuringElement(cv::MORPH_RECT, {3, 3});
 }
 
-DetectionResult HsvDetector::detect(const cv::Mat& frame, bool /*isMoving*/) {
+DetectionResult HsvDetector::detect(const cv::Mat& frame, bool isMoving) {
     DetectionResult result{false, {0.f, 0.f}, 0.f, {}};
 
     if (frame.empty()) return result;
 
-    // HSV color filter
+    // Learned yellow colour model (Hue+Saturation Gaussian gate)
     cv::cvtColor(frame, m_hsv, cv::COLOR_BGR2HSV);
-    cv::inRange(m_hsv, m_cfg.lowerHSV, m_cfg.upperHSV, m_mask);
+
+    cv::Mat ch[3];
+    cv::split(m_hsv, ch);                 // ch[0]=H, ch[1]=S, ch[2]=V (8-bit)
+    cv::Mat H, S;
+    ch[0].convertTo(H, CV_32F);
+    ch[1].convertTo(S, CV_32F);
+
+    const YellowColorModel& m = m_cfg.colorModel;
+    cv::Mat dH = H - m.mean[0];
+    cv::Mat dS = S - m.mean[1];
+
+    // Mahalanobis² = a·dH² + (b+c)·dH·dS + d·dS²,  invCov = [[a,b],[c,d]]
+    cv::Mat mahal = m.invCov(0, 0) * dH.mul(dH)
+                  + (m.invCov(0, 1) + m.invCov(1, 0)) * dH.mul(dS)
+                  + m.invCov(1, 1) * dS.mul(dS);
+
+    m_mask = (mahal < m.threshold);                 // CV_8U, 255 where yellow
+    m_mask.setTo(0, ch[2] < m_cfg.minValue);        // drop near-black (hue noise)
 
     // Morphological cleanup
     cv::erode (m_mask, m_mask, m_kernel, {-1,-1}, m_cfg.erodeIterations);
@@ -72,4 +91,61 @@ DetectionResult HsvDetector::detect(const cv::Mat& frame, bool /*isMoving*/) {
     result.boundingBox = bbox;
 
     return result;
+}
+
+void HsvDetector::trainColorModel(const std::vector<cv::Mat>& yellowPatches) {
+    cv::Mat samplesHS;   // N×2 CV_32F rows of [H, S]
+
+    for (const auto& patch : yellowPatches) {
+        if (patch.empty()) continue;
+
+        cv::Mat hsv;
+        cv::cvtColor(patch, hsv, cv::COLOR_BGR2HSV);
+        hsv.convertTo(hsv, CV_32F);
+
+        // Flatten to one row per pixel, keep only the H and S columns.
+        cv::Mat flat = hsv.reshape(1, static_cast<int>(hsv.total())); // (N×3)
+        samplesHS.push_back(flat(cv::Range::all(), cv::Range(0, 2)).clone());
+    }
+
+    if (samplesHS.rows >= 2)
+        m_cfg.colorModel.fit(samplesHS);
+    else
+        std::cerr << "[Detector] trainColorModel: not enough sample pixels.\n";
+}
+
+// YellowColorModel
+void YellowColorModel::fit(const cv::Mat& samplesHS) {
+    cv::Mat cov, mu;
+    cv::calcCovarMatrix(samplesHS, cov, mu,
+                        cv::COVAR_NORMAL | cv::COVAR_ROWS | cv::COVAR_SCALE,
+                        CV_32F);
+
+    mean = { mu.at<float>(0), mu.at<float>(1) };
+
+    // Regularize so the 2×2 covariance stays invertible on tight colour samples.
+    cov.at<float>(0, 0) += 1.f;
+    cov.at<float>(1, 1) += 1.f;
+
+    invCov = cv::Matx22f(cov.at<float>(0, 0), cov.at<float>(0, 1),
+                         cov.at<float>(1, 0), cov.at<float>(1, 1)).inv();
+}
+
+bool YellowColorModel::save(const std::string& path) const {
+    std::ofstream f(path);
+    if (!f) return false;
+    f << mean[0] << ' ' << mean[1] << '\n'
+      << invCov(0, 0) << ' ' << invCov(0, 1) << ' '
+      << invCov(1, 0) << ' ' << invCov(1, 1) << '\n'
+      << threshold << '\n';
+    return static_cast<bool>(f);
+}
+
+bool YellowColorModel::load(const std::string& path) {
+    std::ifstream f(path);
+    if (!f) return false;
+    f >> mean[0] >> mean[1]
+      >> invCov(0, 0) >> invCov(0, 1) >> invCov(1, 0) >> invCov(1, 1)
+      >> threshold;
+    return !f.fail();
 }

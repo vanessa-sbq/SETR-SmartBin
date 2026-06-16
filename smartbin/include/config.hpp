@@ -4,15 +4,14 @@
 // All subsystems (main, motor, detector, camera) read their defaults from here.
 
 namespace Config {
-
     // Camera
     constexpr int   DEVICE_INDEX = 0;       // 0 = first camera; override via argv
-    constexpr int   FRAME_W      = 1920;     // 16:9 width  - lower = faster MOG2
-    constexpr int   FRAME_H      = 1920;     // 16:9 height - quarter pixels vs 640×360
+    constexpr int   FRAME_W      = 640;     // 16:9 width  — lower = faster MOG2
+    constexpr int   FRAME_H      = 480;     // 16:9 height — quarter pixels vs 640×360
     constexpr int   FRAME_FPS    = 30;
 
     // Lens FOV (degrees)
-    constexpr float H_FOV_DEG    = 102.f;   // horizontal FOV - Pi Camera Module 3 Wide
+    constexpr float H_FOV_DEG    = 102.f;   // horizontal FOV — Pi Camera Module 3 Wide
     constexpr float V_FOV_DEG    = 76.5f;   // = H_FOV * (3/4) for 4:3 sensor (640×480)
 
     // Detector
@@ -20,13 +19,18 @@ namespace Config {
     constexpr int   DET_ERODE_ITER      = 1;
     constexpr int   DET_DILATE_ITER     = 2;
 
-    // HSV color filter (orange/yellow ball)
-    constexpr int   DET_HSV_LO_H        = 12;
-    constexpr int   DET_HSV_LO_S        = 80;
-    constexpr int   DET_HSV_LO_V        = 80;
-    constexpr int   DET_HSV_HI_H        = 42;
-    constexpr int   DET_HSV_HI_S        = 255;
-    constexpr int   DET_HSV_HI_V        = 255;
+    // Learned yellow colour model — Hue+Saturation Gaussian gate.
+    // Replaces the fixed HSV inRange box: a pixel is "yellow" when its
+    // Mahalanobis² distance to (mean, covariance) in (H,S) space is below the
+    // gate. Defaults below are seeded from the legacy hue band (12..42, mid 27)
+    // and saturation band (80..255, mid 167); refit at runtime with
+    // HsvDetector::trainColorModel() / YellowColorModel::load().
+    constexpr float DET_COLOR_MEAN_H = 27.f;   // mean Hue        (OpenCV 8-bit, 0..179)
+    constexpr float DET_COLOR_MEAN_S = 167.f;  // mean Saturation (0..255)
+    constexpr float DET_COLOR_VAR_H  = 56.f;   // Hue variance        (~±15 → σ≈7.5)
+    constexpr float DET_COLOR_VAR_S  = 1870.f; // Saturation variance (~±87 → σ≈43)
+    constexpr float DET_COLOR_GATE   = 9.0f;   // Mahalanobis² cutoff (~3σ)
+    constexpr int   DET_COLOR_MIN_V  = 60;     // reject near-black pixels (unstable hue)
 
     constexpr float DET_MIN_CIRCULARITY = 0.4f; // discard non-round blobs
     constexpr float DET_MAX_DIST_M      = 2.0f; // ignore detections beyond this
@@ -58,7 +62,7 @@ namespace Config {
     // Display
     constexpr bool  SHOW_WINDOW = false; // keep false on Pi (imshow is expensive)
 
-    // Real-time tasks - SCHED_DEADLINE parameters in nanoseconds.
+    // Real-time tasks — SCHED_DEADLINE parameters in nanoseconds.
     // Kernel requires runtime (C) <= deadline (D) <= period (T).
     // Vision Detection: periodic, paced by the camera (30 fps)
     constexpr long long TASK_VISION_RUNTIME_NS  =  20'000'000;
@@ -77,6 +81,13 @@ namespace Config {
     constexpr long long TASK_MOTOR_RUNTIME_NS   =   2'000'000;
     constexpr long long TASK_MOTOR_DEADLINE_NS  =   5'000'000;
     constexpr long long TASK_MOTOR_PERIOD_NS    =  20'000'000;
+
+    // Operation Interface - ESP8266 WiFi remote (see wifi_raspberry/wifi.cpp).
+    // Button names are matched case-insensitively against the CSV the remote
+    // sends. Port matches the reference server.
+    constexpr int         OPIF_PORT       = 6767;    // TCP listen port
+    constexpr const char* OPIF_BTN_TOGGLE = "START"; // toggles the start/stop flag
+    constexpr const char* OPIF_BTN_QUIT   = "QUIT";  // requests shutdown
 
     // Operation Interface: low-rate housekeeping (start/stop, debug display)
     constexpr long long TASK_UI_RUNTIME_NS      =   5'000'000;

@@ -16,7 +16,8 @@ SRCS := main.cpp \
         camera/detector_bgsub.cpp \
         camera/detector_kalman.cpp \
         camera/detector_factory.cpp \
-        camera/motor_translation.cpp
+        camera/motor_translation.cpp \
+        operation_interface/operation_interface.cpp
 
 ifeq ($(PLATFORM),desktop)
     CXXFLAGS += -DSMARTBIN_DESKTOP
@@ -51,4 +52,4 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f main.o camera/*.o hardware_drive.o hardware_drive_stub.o motor/*.o $(TARGET)
+	rm -f main.o camera/*.o operation_interface/*.o hardware_drive.o hardware_drive_stub.o motor/*.o $(TARGET)
