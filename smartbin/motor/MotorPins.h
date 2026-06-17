@@ -1,5 +1,8 @@
 #pragma once
 
+/*
+    Raspberry GPIO Pins for the PWM board.
+*/
 struct MotorPins {
     int in1_front = 23;
     int in2_front = 24;

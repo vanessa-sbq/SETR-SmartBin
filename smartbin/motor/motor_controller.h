@@ -1,17 +1,17 @@
 #pragma once
 
-#include <iostream>
-#include <cstdint>
-#include <string>
-#include <gpiod.h>
-#include <PiPCA9685/PCA9685.h>
 #include "MotorPins.h"
+#include <PiPCA9685/PCA9685.h>
+#include <cstdint>
+#include <gpiod.h>
+#include <iostream>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 class MotorController {
-public:
-    MotorController(const std::string &gpio_chip, const MotorPins &pins/*, PiPCA9685::PCA9685 &pwm */): chip_(nullptr) /*, pwm_(pwm) */ {
+  public:
+    MotorController(const std::string &gpio_chip, const MotorPins &pins) : chip_(nullptr) {
         chip_ = gpiod_chip_open(gpio_chip.c_str());
         if (!chip_) {
             throw std::runtime_error("Failed to open GPIO chip");
@@ -19,14 +19,14 @@ public:
 
         // Collect all 8 offsets into an array
         unsigned int offsets[8] = {
-            static_cast<unsigned int>(pins.in1_front), //in1_front_offset_
-            static_cast<unsigned int>(pins.in2_front), //in2_front_offset_
-            static_cast<unsigned int>(pins.in3_front), //in3_front_offset_
-            static_cast<unsigned int>(pins.in4_front), //in4_front_offset_
-            static_cast<unsigned int>(pins.in1_rear), //in1_rear_offset_
-            static_cast<unsigned int>(pins.in2_rear), //in2_rear_offset_
-            static_cast<unsigned int>(pins.in3_rear), //in3_rear_offset_
-            static_cast<unsigned int>(pins.in4_rear), //in4_rear_offset_
+            static_cast<unsigned int>(pins.in1_front), // in1_front_offset_
+            static_cast<unsigned int>(pins.in2_front), // in2_front_offset_
+            static_cast<unsigned int>(pins.in3_front), // in3_front_offset_
+            static_cast<unsigned int>(pins.in4_front), // in4_front_offset_
+            static_cast<unsigned int>(pins.in1_rear), // in1_rear_offset_
+            static_cast<unsigned int>(pins.in2_rear), // in2_rear_offset_
+            static_cast<unsigned int>(pins.in3_rear), // in3_rear_offset_
+            static_cast<unsigned int>(pins.in4_rear), // in4_rear_offset_
         };
 
         // Configure all lines as output, default low
@@ -69,10 +69,10 @@ public:
         in2_front_offset_ = offsets[1];
         in3_front_offset_ = offsets[2];
         in4_front_offset_ = offsets[3];
-        in1_rear_offset_  = offsets[4];
-        in2_rear_offset_  = offsets[5];
-        in3_rear_offset_  = offsets[6];
-        in4_rear_offset_  = offsets[7];
+        in1_rear_offset_ = offsets[4];
+        in2_rear_offset_ = offsets[5];
+        in3_rear_offset_ = offsets[6];
+        in4_rear_offset_ = offsets[7];
     }
 
     ~MotorController() {
@@ -83,21 +83,20 @@ public:
             gpiod_chip_close(chip_);
         }
     }
-
-    void change_speed(uint16_t speed);
-    void stop_car();
-
-    void go_ahead(uint16_t speed);
-    void go_back(uint16_t speed);
-    void turn_right(uint16_t speed);
-    void turn_left(uint16_t speed);
-    void shift_left(uint16_t speed);
-    void shift_right(uint16_t speed);
-    void upper_right(uint16_t speed);
-    void lower_left(uint16_t speed);
-    void upper_left(uint16_t speed);
-    void lower_right(uint16_t speed);
+    
     void move_individual(std::vector<double> speeds);
+
+    void stop_car();
+    void go_ahead();
+    void go_back();
+    void turn_right();
+    void turn_left();
+    void shift_left();
+    void shift_right();
+    void upper_right();
+    void lower_left();
+    void upper_left();
+    void lower_right();
     void rr_back();
     void fr_ahead();
     void fl_ahead();
@@ -107,9 +106,7 @@ public:
     void rl_ahead();
     void fl_back();
 
-private:
-   
-
+  private:
     void set_line(unsigned int offset, int value);
 
     gpiod_chip *chip_;

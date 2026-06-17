@@ -1,12 +1,5 @@
 #include "motor_controller.h"
 
-void MotorController::change_speed(uint16_t speed) {
-    /* pwm_.set_duty_cycle(0, speed);
-    pwm_.set_duty_cycle(1, speed);
-    pwm_.set_duty_cycle(2, speed);
-    pwm_.set_duty_cycle(3, speed); */
-}
-
 void MotorController::stop_car() {
     set_line(in1_front_offset_, 0);
     set_line(in2_front_offset_, 0);
@@ -16,81 +9,73 @@ void MotorController::stop_car() {
     set_line(in2_rear_offset_, 0);
     set_line(in3_rear_offset_, 0);
     set_line(in4_rear_offset_, 0);
-    change_speed(0);
 }
 
-void MotorController::go_ahead(uint16_t speed) {
+void MotorController::go_ahead() {
     rl_ahead();
     rr_ahead();
     fl_ahead();
     fr_ahead();
-    change_speed(speed);
 }
 
-void MotorController::go_back(uint16_t speed) {
+void MotorController::go_back() {
     rr_back();
     rl_back();
     fr_back();
     fl_back();
-    change_speed(speed);
 }
 
-void MotorController::turn_right(uint16_t speed) {
+void MotorController::turn_right() {
     rl_ahead();
     rr_back();
     fl_ahead();
     fr_back();
-    change_speed(speed);
 }
 
-void MotorController::turn_left(uint16_t speed) {
+void MotorController::turn_left() {
     rr_ahead();
     rl_back();
     fr_ahead();
     fl_back();
-    change_speed(speed);
 }
 
-void MotorController::shift_left(uint16_t speed) {
+void MotorController::shift_left() {
     fr_ahead();
     rr_back();
     rl_ahead();
     fl_back();
-    change_speed(speed);
 }
 
-void MotorController::shift_right(uint16_t speed) {
+void MotorController::shift_right() {
     fr_back();
     rr_ahead();
     rl_back();
     fl_ahead();
-    change_speed(speed);
 }
 
-void MotorController::upper_right(uint16_t speed) {
+void MotorController::upper_right() {
     rr_ahead();
     fl_ahead();
-    change_speed(speed);
 }
 
-void MotorController::lower_left(uint16_t speed) {
+void MotorController::lower_left() {
     rr_back();
     fl_back();
-    change_speed(speed);
 }
 
-void MotorController::upper_left(uint16_t speed) {
+void MotorController::upper_left() {
     fr_ahead();
     rl_ahead();
-    change_speed(speed);
 }
 
-void MotorController::lower_right(uint16_t speed) {
+void MotorController::lower_right() {
     fr_back();
     rl_back();
-    change_speed(speed);
 }
 
+/*
+    This function sets the motor direction using GPIO for each wheel based on sign
+*/
 void MotorController::move_individual(std::vector<double> speeds) {
     // Front right
     if (speeds[0] >= 0.0) {
@@ -99,14 +84,12 @@ void MotorController::move_individual(std::vector<double> speeds) {
         fr_back();
     }
 
-
     // Front Left
     if (speeds[1] >= 0.0) {
         fl_ahead();
     } else {
         fl_back();
     }
-
 
     // Back right
     if (speeds[2] >= 0.0) {
@@ -115,7 +98,6 @@ void MotorController::move_individual(std::vector<double> speeds) {
         rr_back();
     }
 
-
     // Back Left
     if (speeds[3] >= 0.0) {
         rl_ahead();
@@ -123,8 +105,6 @@ void MotorController::move_individual(std::vector<double> speeds) {
         rl_back();
     }
 }
-
-
 
 void MotorController::set_line(unsigned int offset, int value) {
     enum gpiod_line_value val = value ? GPIOD_LINE_VALUE_ACTIVE : GPIOD_LINE_VALUE_INACTIVE;
