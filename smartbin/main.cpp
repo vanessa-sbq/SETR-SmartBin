@@ -11,8 +11,6 @@
 #include <cstdint>
 #include <cstring>
 #include <iostream>
-
-// TODO: Do we need all of these imports? (remove unused ones)
 #include <poll.h>
 #include <pthread.h>
 #include <sched.h>
@@ -24,43 +22,39 @@
 
 /**
  * Tasks:
- *   Vision Detection      -> periodic
- *   Trajectory Prediction -> sporadic
- *   Motor Control         -> periodic
- *   Operation Interface   -> sporadic
+ *   Vision Detection      -> Periodic
+ *   Trajectory Prediction -> Sporadic
+ *   Motor Control         -> Periodic
+ *   Operation Interface   -> Periodic
  */
 
 // Shared variables for inter-task communication
-static std::atomic<bool> g_running{true}; // process lifetime (Ctrl-C / "q")
-static std::atomic<bool> g_active{true}; // start/stop flag: Operation Interface -> Motor Control
+static std::atomic<bool> global_program_running{true}; // Process lifetime
+static std::atomic<bool> global_robot_active{true}; // Start/stop flag: Operation Interface -> Motor Control
 
 // Signal handler
-static void onSignal(int) { g_running = false; }
+static void onSignal(int) { global_program_running = false; }
 
-// P_obj - written by Vision Detection, read by Trajectory Prediction.
-// "seq" lets the prediction task detect a fresh sample (its release event).
-static struct {
-    pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER; // TODO: ?
-    pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
-    DetectionResult det{};
-    uint64_t seq = 0;
-} global_object_position;
-
-// P_target - written by Trajectory Prediction, read by Motor Control.
-static struct {
-    pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER; // TODO: ?
-    MotorCommand cmd{};
-} g_pTarget;
-
-// TODO: Do we still need this? (remove?)
-// Debug frame - written by Vision Detection, shown by Operation Interface.
+// Written by Vision Detection, read by Trajectory Prediction.
+// Since the Trajectory Prediction is supposed to be sporadic we need the condition for this to be possible in Linux because it does not have a specific sporadic server.
 static struct {
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
-    cv::Mat frame;
-    uint64_t seq = 0;
-} g_debug;
+    pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+    DetectionResult det{};
+    uint64_t seq = 0; // "seq" lets the prediction task detect a fresh sample (also its release event).
+} global_object_position;
 
-// TODO:?
+// Written by Trajectory Prediction, read by Motor Control.
+static struct {
+    pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+    MotorCommand cmd{};
+} global_prediction_target;
+
+/*
+    Global app context.
+    Needed because pthread_create only allows a single argument of type void* to be used in each task and our
+    tasks need more than one parameter. For example, the vision task requires both the camera and the detector.
+*/
 struct AppContext {
     Camera *cam;
     HsvDetector *detector;
@@ -68,22 +62,6 @@ struct AppContext {
     bool hwOk;
 };
 
-// TODO: ?
-/**
- * SCHED_DEADLINE plumbing - glibc has no wrapper for sched_setattr(2).
- */
-struct SchedAttr {
-    uint32_t size;
-    uint32_t sched_policy;
-    uint64_t sched_flags;
-    int32_t sched_nice;
-    uint32_t sched_priority;
-    uint64_t sched_runtime;
-    uint64_t sched_deadline;
-    uint64_t sched_period;
-};
-
-// TODO: ?
 #ifndef SCHED_DEADLINE
 #define SCHED_DEADLINE 6
 #endif
@@ -91,25 +69,35 @@ struct SchedAttr {
 #define SCHED_FLAG_RESET_ON_FORK 0x01
 #endif
 
-// TODO: ?
+/*
+    Helper function. Helps set deadline schedule. It also uses SCHED_FLAG_RESET_ON_FORK to allow library code to fork and run
+    as normal best-effort work. This does not compromise the schedulability of EDF tasks because if one becomes active we will just
+    remove the CPU from the one that called the blocking library code and instead we will run the task with the current
+    highest priority.
+*/
 static void setDeadlineSched(const char *name, long long runtimeNs, long long deadlineNs, long long periodNs) {
-    SchedAttr attr{};
+    struct sched_attr attr;
     attr.size = sizeof(attr);
     attr.sched_policy = SCHED_DEADLINE;
-    // The kernel refuses clone() from a SCHED_DEADLINE task (EAGAIN), so
-    // helper threads spawned inside our tasks (TBB/OpenCV workers, LCCV)
-    // would fail to start. RESET_ON_FORK makes them plain SCHED_OTHER.
+    attr.sched_nice = 0;
+    attr.sched_priority = 0;
+    // The kernel refuses clone() or fork() from a SCHED_DEADLINE task (EAGAIN), so OpenCV or LCCV would fail to start.
     attr.sched_flags = SCHED_FLAG_RESET_ON_FORK;
     attr.sched_runtime = static_cast<uint64_t>(runtimeNs);
     attr.sched_deadline = static_cast<uint64_t>(deadlineNs);
     attr.sched_period = static_cast<uint64_t>(periodNs);
+    attr.sched_util_min = 0;
+    attr.sched_util_max = 0;
     if (syscall(SYS_sched_setattr, 0, &attr, 0) != 0)
         std::cerr << "[" << name << "] SCHED_DEADLINE unavailable (" << std::strerror(errno)
                   << ") - running with the default policy. Run as root on a "
                      "PREEMPT_RT kernel for real-time guarantees.\n";
 }
 
-// TODO: ?
+/*
+    Helper function.
+    When a task finishes early and we need to wait we call this function to wait for a specific (ns) number of nanoseconds.
+*/
 static void timespecAddNs(timespec &t, long long ns) {
     t.tv_nsec += ns;
     while (t.tv_nsec >= 1'000'000'000L) {
@@ -118,7 +106,10 @@ static void timespecAddNs(timespec &t, long long ns) {
     }
 }
 
-// TODO: ?
+/*
+    Helper function.
+    Just sets the command for the motor to stop.
+*/
 static MotorCommand stopCommand() {
     MotorCommand cmd{};
     cmd.stop = true;
@@ -137,11 +128,13 @@ static void *visionTask(void *arg) {
     setDeadlineSched("vision", Config::TASK_VISION_RUNTIME_NS, Config::TASK_VISION_DEADLINE_NS, Config::TASK_VISION_PERIOD_NS);
 
     cv::Mat frame;
-    while (g_running) {
+    while (global_program_running) {
         if (!ctx.cam->readFrame(frame)) {
-            std::cerr << "[Vision] Failed to read frame - retrying...\n";
-            timespec retry{0, 30'000'000}; // Retry after 30 ms (camera frame period)
-            nanosleep(&retry, nullptr);
+            std::cerr << "[Vision] Failed to read frame, retrying...\n";
+            timespec next;
+            clock_gettime(CLOCK_MONOTONIC, &next);
+            timespecAddNs(next, 30'000'000);
+            clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next, nullptr);
             continue;
         }
 
@@ -152,57 +145,49 @@ static void *visionTask(void *arg) {
         pthread_mutex_lock(&global_object_position.mtx);
         global_object_position.det = det;
         ++global_object_position.seq;
-        pthread_cond_signal(&global_object_position.cond); // release Trajectory Prediction
+        pthread_cond_signal(&global_object_position.cond); // Release Trajectory Prediction
         pthread_mutex_unlock(&global_object_position.mtx);
-
-        // Debug display (only when enabled in config)
-        if (Config::SHOW_WINDOW) {
-            pthread_mutex_lock(&g_debug.mtx);
-            ++g_debug.seq;
-            pthread_mutex_unlock(&g_debug.mtx);
-        }
     }
 
-    // Wake the prediction task so it can observe g_running and exit.
-    // TODO: ?
+    // Wake the prediction task so it can observe global_program_running and exit.
     pthread_mutex_lock(&global_object_position.mtx);
-    pthread_cond_broadcast(&global_object_position.cond);
+    pthread_cond_signal(&global_object_position.cond);
     pthread_mutex_unlock(&global_object_position.mtx);
     return nullptr;
 }
 
 /**
  * Task: Trajectory Prediction (sporadic)
- * Released by a new P_obj sample; minimum inter-arrival time is the camera
+ * Released by a new global_object_position; minimum inter-arrival time is the camera
  * period, and the CBS budget bounds its CPU use (sporadic-server behaviour).
  */
 static void *predictionTask(void *arg) {
-    auto &ctx = *static_cast<AppContext *>(arg); // TODO: ?
+    auto &ctx = *static_cast<AppContext *>(arg);
 
-    // TODO: ? sporadic, not EDF
+    // Request SCHED_DEADLINE for the motor control task
     setDeadlineSched("prediction", Config::TASK_PRED_RUNTIME_NS, Config::TASK_PRED_DEADLINE_NS, Config::TASK_PRED_PERIOD_NS);
 
     uint64_t lastSeq = 0;
-    while (g_running) {
+    while (global_program_running) {
         pthread_mutex_lock(&global_object_position.mtx);
-        while (global_object_position.seq == lastSeq && g_running)
+        while (global_object_position.seq == lastSeq && global_program_running)
             // Task sleeps until a new detection result is available (vision task signals global_object_position.cond)
             pthread_cond_wait(&global_object_position.cond, &global_object_position.mtx);
-        DetectionResult det = global_object_position.det; // copy the detection result while holding the lock
+        DetectionResult det = global_object_position.det; // Copy the detection result while holding the lock
         lastSeq = global_object_position.seq;
         pthread_mutex_unlock(&global_object_position.mtx);
 
         // Early exit if the process is shutting down
-        if (!g_running)
+        if (!global_program_running)
             break;
 
         // Compute motor commands based on the detection result
         MotorCommand cmd = ctx.motor->compute(det.detected, det.centroid, det.boundingBox);
 
         // Write motor commands to shared variable
-        pthread_mutex_lock(&g_pTarget.mtx);
-        g_pTarget.cmd = cmd;
-        pthread_mutex_unlock(&g_pTarget.mtx);
+        pthread_mutex_lock(&global_prediction_target.mtx);
+        global_prediction_target.cmd = cmd;
+        pthread_mutex_unlock(&global_prediction_target.mtx);
     }
     return nullptr;
 }
@@ -210,10 +195,10 @@ static void *predictionTask(void *arg) {
 /**
  * Task: Motor Control (periodic, 50 Hz)
  * Reads the latest P_target and writes PWM duty cycles to the hat over I2C.
- * Honours the start/stop flag from the Operation Interface.
+ * Uses the start/stop flag from the Operation Interface.
  */
 static void *motorTask(void *arg) {
-    auto &ctx = *static_cast<AppContext *>(arg); // TODO: ?
+    auto &ctx = *static_cast<AppContext *>(arg);
 
     // Request SCHED_DEADLINE for the motor control task
     setDeadlineSched("motor", Config::TASK_MOTOR_RUNTIME_NS, Config::TASK_MOTOR_DEADLINE_NS, Config::TASK_MOTOR_PERIOD_NS);
@@ -222,14 +207,14 @@ static void *motorTask(void *arg) {
     timespec next;
     clock_gettime(CLOCK_MONOTONIC, &next);
 
-    while (g_running) {
+    while (global_program_running) {
         // Read the latest motor command from the prediction task
         MotorCommand cmd;
-        pthread_mutex_lock(&g_pTarget.mtx);
-        cmd = g_pTarget.cmd;
-        pthread_mutex_unlock(&g_pTarget.mtx);
+        pthread_mutex_lock(&global_prediction_target.mtx);
+        cmd = global_prediction_target.cmd;
+        pthread_mutex_unlock(&global_prediction_target.mtx);
 
-        if (!g_active)
+        if (!global_robot_active)
             cmd = stopCommand();
 
         // Apply motor command to hardware (if initialized successfully)
@@ -246,56 +231,35 @@ static void *motorTask(void *arg) {
     return nullptr;
 }
 
-// TODO: ?
+
 /**
- * Task: Operation Interface (low-rate)
- * Two control surfaces, both non-blocking so the task keeps its period:
- *   - stdin: 's' toggles start/stop, 'q' quits.
- *   - WiFi remote: an ESP8266 sends button presses over TCP (see
- *     operation_interface.{hpp,cpp}); START toggles start/stop, QUIT quits.
- * With SHOW_WINDOW it also displays the latest debug frame (all highgui calls
- * stay on this one thread).
+ * Task: Operation Interface
+ * WiFi remote (non-blocking): an esp8266 sends button presses over TCP.
+ * The START button toggles start/stop.
  */
 static void *opInterfaceTask(void *arg) {
-    auto &ctx = *static_cast<AppContext *>(arg);
-    (void)ctx;
-
     // Request SCHED_DEADLINE for the operation interface task
     setDeadlineSched("opIface", Config::TASK_UI_RUNTIME_NS, Config::TASK_UI_DEADLINE_NS, Config::TASK_UI_PERIOD_NS);
 
-    // WiFi remote (ESP8266). If the socket fails to open we log and carry on
-    // with stdin-only control rather than aborting the whole task.
+    // WiFi remote (esp8266). If the socket fails to open we log and carry on.
     OperationInterface remote(Config::OPIF_PORT);
     remote.start();
 
     auto toggleActive = [] {
-        g_active = !g_active;
-        std::cout << (g_active ? "[OpIface] started\n" : "[OpIface] stopped\n");
+        global_robot_active = !global_robot_active;
+        std::cout << (global_robot_active ? "[OpIface] started\n" : "[OpIface] stopped\n");
     };
 
     timespec next;
     clock_gettime(CLOCK_MONOTONIC, &next);
 
-    while (g_running) {
-        // Non-blocking console input
-        pollfd pfd{STDIN_FILENO, POLLIN, 0};
-        if (poll(&pfd, 1, 0) > 0 && (pfd.revents & POLLIN)) {
-            char buf[64];
-            ssize_t n = read(STDIN_FILENO, buf, sizeof buf);
-            for (ssize_t i = 0; i < n; ++i) {
-                if (buf[i] == 'q')
-                    g_running = false;
-                if (buf[i] == 's')
-                    toggleActive();
-            }
-        }
-
+    while (global_program_running) {
         // Non-blocking WiFi remote input
         OperationInterface::Events ev = remote.poll();
         if (ev.toggleActive)
             toggleActive();
         if (ev.quit)
-            g_running = false;
+            global_program_running = false;
 
         // Sleep until the next period
         timespecAddNs(next, Config::TASK_UI_PERIOD_NS);
@@ -304,17 +268,14 @@ static void *opInterfaceTask(void *arg) {
     return nullptr;
 }
 
-int main(int argc, char *argv[]) {
-    // Handle SIGINT and SIGTERM for graceful shutdown (set g_running = false)
+int main() {
+    // Handle SIGINT and SIGTERM for graceful shutdown (set global_program_running = false)
     std::signal(SIGINT, onSignal); // on Ctrl+C
     std::signal(SIGTERM, onSignal); // on kill command
 
-    // Check if we want to compile for desktop or rpi
-    int deviceIndex = (argc > 1) ? std::stoi(argv[1]) : Config::DEVICE_INDEX;
-
     // Initialize camera, detector and motor
-    Camera cam(deviceIndex, Config::CAM_VIDEO_WIDTH, Config::CAM_VIDEO_HEIGHT, Config::CAM_FPS);
-    auto detector = HsvDetector(); // TODO: Select algorithm to use for detection
+    Camera cam(Config::DEVICE_INDEX, Config::CAM_VIDEO_WIDTH, Config::CAM_VIDEO_HEIGHT, Config::CAM_FPS);
+    HsvDetector detector = HsvDetector();
     MotorTranslation motor(Config::CAM_VIDEO_WIDTH, Config::CAM_VIDEO_HEIGHT);
 
     // Check camera errors
@@ -326,24 +287,24 @@ int main(int argc, char *argv[]) {
     // Initialize hardware drive
     bool hwOk = hardwareInit();
 
-    // without locking rather than crash.
-    rlimit memlock{RLIM_INFINITY, RLIM_INFINITY}; // TODO:?
+    rlimit memlock{RLIM_INFINITY, RLIM_INFINITY};
     if (setrlimit(RLIMIT_MEMLOCK, &memlock) != 0) {
         std::cerr << "setrlimit(RLIMIT_MEMLOCK) failed (" << std::strerror(errno) << ") - skipping mlockall; page faults may add latency.\n";
     }
 
     // Lock all memory regions to avoid page-fault latency in the RT tasks
-    if (mlockall(MCL_CURRENT | MCL_FUTURE) != 0) { // TODO:?
+    if (mlockall(MCL_CURRENT | MCL_FUTURE) != 0) {
         std::cerr << "mlockall failed (" << std::strerror(errno) << ") - page faults may add latency.\n";
     }
 
-    g_pTarget.cmd = stopCommand(); // TODO:?
+    // Initialze the motor command to prevent the robot from moving.
+    global_prediction_target.cmd = stopCommand();
 
-    AppContext ctx{&cam, &detector, &motor, hwOk}; // TODO:?
+    // Store the app context and save all the initialized hardware.
+    AppContext ctx{&cam, &detector, &motor, hwOk};
 
-    std::cout << "Trashcan tracker running. 's' = start/stop, 'q' or Ctrl-C = quit.\n";
+    std::cout << "SmartBin running.\n";
 
-    // TODO: Add checks to verify errors?
     pthread_t tVision, tPrediction, tMotor, tOpIface;
     pthread_create(&tVision, nullptr, visionTask, &ctx); // computer vision task
     pthread_create(&tPrediction, nullptr, predictionTask, &ctx); // prediction task
@@ -355,7 +316,7 @@ int main(int argc, char *argv[]) {
     pthread_join(tMotor, nullptr);
     pthread_join(tOpIface, nullptr);
 
-    std::cout << "\nShutting down.\n";
+    std::cout << "\nShutting down. Goodbye :(\n";
     hardwareShutdown();
     cam.release();
     cv::destroyAllWindows();

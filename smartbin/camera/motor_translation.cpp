@@ -7,10 +7,10 @@
  * Mecanum Inverse Kinematics (translate robot velocities into wheel speeds)
  */
 static void mecanumIK(float vx, float vy, float &fl, float &fr, float &rl, float &rr) {
-    fl = vx + vy; // front left wheel speed
-    fr = vx - vy; // front right wheel speed
-    rl = vx - vy; // rear left wheel speed
-    rr = vx + vy; // rear right wheel speed
+    fl = vx + vy; // Front left wheel speed
+    fr = vx - vy; // Front right wheel speed
+    rl = vx - vy; // Rear left wheel speed
+    rr = vx + vy; // Rear right wheel speed
 }
 
 /**
@@ -35,28 +35,26 @@ MotorCommand MotorTranslation::compute(bool detected, cv::Point2f centroid, cv::
 
     cmd.stop = false;
 
-    // Estimate distance to object using the pinhole model:
-    // distance = (real_size * focal_length) / pixel_size
-    // Pinhole Model background: HediVision, "Pinhole Camera Model" https://hedivision.github.io/Pinhole.html
+    // Estimate distance to object
     float pixSize = static_cast<float>(std::max(bbox.width, bbox.height));
     float dist = (pixSize > 0.f) ? (motor_config.objectSizeCm * motor_focalLengthPx) / pixSize : 0.f; // cm
     cmd.distanceM = dist / 100.f;
 
     // Robot-frame position
-    // Camera looks up: optical axis = Z (height above floor).
-    // Image vertical -> robot X axis (front/back).
+    // Camera looks up: optical axis = Z
+    // Image vertical -> robot X axis (front/back)
     // Image horizontal -> robot Y axis (left/right), camera is camOffsetY off centre.
     float cmPerPx = dist / motor_focalLengthPx;
-    float imgCx = static_cast<float>(motor_frame_width) / 2.f; // image center x in pixels
-    float imgCy = static_cast<float>(motor_frame_height) / 2.f; // image center y in pixels
-    float cx = centroid.x; // detected object center x in pixels
-    float cy = centroid.y; // detected object center y in pixels
-    float robotX = (imgCy - cy) * cmPerPx / 100.f + motor_config.camOffsetY; // how far front/back the object is relative to the robot center in m (positive = in front)
-    float robotY = -(cx - imgCx) * cmPerPx / 100.f; // How far left/right the object is relative to the robot center in m (positive = left)
+    float imgCx = static_cast<float>(motor_frame_width) / 2.f; // Image center x in pixels
+    float imgCy = static_cast<float>(motor_frame_height) / 2.f; // Image center y in pixels
+    float cx = centroid.x; // Detected object center x in pixels
+    float cy = centroid.y; // Detected object center y in pixels
+    float robotX = (imgCy - cy) * cmPerPx / 100.f + motor_config.camOffsetY; // How far front/back the object is relative to the robot center in meters
+    float robotY = -(cx - imgCx) * cmPerPx / 100.f; // How far left/right the object is relative to the robot center in meters
 
     // Robot velocity calculation
-    float pVy = motor_config.kpX * robotX; // proportional control for forward/backward motion
-    float pVx = motor_config.kpY * robotY; // proportional control for left/right motion
+    float pVy = motor_config.kpX * robotX; // Proportional control for forward/backward motion
+    float pVx = motor_config.kpY * robotY; // Proportional control for left/right motion
     cmd.velX = pVx;
     cmd.velY = pVy;
 

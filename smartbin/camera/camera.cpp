@@ -1,22 +1,22 @@
 #include "camera.hpp"
 #include <iostream>
 
-Camera::Camera(int deviceIndex, int width, int height, int fps) : m_deviceIndex(deviceIndex), m_width(width), m_height(height), m_fps(fps) {}
+Camera::Camera(int deviceIndex, int width, int height, int fps) : deviceIndex(deviceIndex), camera_width(width), camera_height(height), camera_fps(fps) {}
 
 Camera::~Camera() { release(); }
 
 bool Camera::open() {
     // Configure the native lccv options
-    m_cam.options->video_width = m_width;
-    m_cam.options->video_height = m_height;
-    m_cam.options->framerate = m_fps;
-    m_cam.options->camera = m_deviceIndex;
+    lccv_camera.options->video_width = camera_width;
+    lccv_camera.options->video_height = camera_height;
+    lccv_camera.options->framerate = camera_fps;
+    lccv_camera.options->camera = deviceIndex;
 
     // Start the libcamera stream
-    m_cam.startVideo();
-    m_isRunning = true;
+    lccv_camera.startVideo();
+    isRunning = true;
 
-    std::cout << "[Camera] Opened Camera Module 3 natively via LCCV at " << m_width << "x" << m_height << " " << m_fps << "fps\n";
+    std::cout << "[Camera] Opened Camera Module 3 natively via LCCV at " << camera_width << "x" << camera_height << " " << camera_fps << "fps\n";
     return true;
 }
 
@@ -24,16 +24,16 @@ bool Camera::open() {
     Helper function. Grabs the a frame from the camera and places it inside the frame matrix.
 */
 bool Camera::readFrame(cv::Mat &frame) {
-    if (!m_isRunning)
+    if (!isRunning)
         return false;
-    bool success = m_cam.getVideoFrame(frame, 1000);
+    bool success = lccv_camera.getVideoFrame(frame, 1000);
     return success && !frame.empty();
 }
 
 void Camera::release() {
-    if (m_isRunning) {
-        m_cam.stopVideo();
-        m_isRunning = false;
+    if (isRunning) {
+        lccv_camera.stopVideo();
+        isRunning = false;
         std::cout << "[Camera] Released libcamera stream.\n";
     }
 }

@@ -30,8 +30,10 @@ bool setNonBlocking(int fd) {
 /*
     Helper function
     Given the existing white space characters we try to create a substring by
-   looking at the points where a whitespace is not found. Example: " SELECT"
-   (value)
+    looking at the points where a whitespace is not found.
+    Example: " SELECT" (value)
+    Return: "SELECT"
+
 */
 std::string trim(const std::string &value) {
     const char *kWhitespace = " \t\r\n";
@@ -47,11 +49,12 @@ std::string trim(const std::string &value) {
     Split a line on commas and strip optional surrounding double quotes.
     It calls the trim function which helps determine the actual button string.
     We iterate through every single character of a line. Since the buttons are
-   separated by commas (e.g. "A, B, SELECT") each time we see one we call flush
-   (lambda function) so that the button can be obtained and added to the button
-   vector. It returns the buttons that are currently being pressed.
+    separated by commas (e.g. "A, B, SELECT") each time we see one we call flush
+    (lambda function) so that the button can be obtained and added to the button
+    vector. It returns the buttons that are currently being pressed.
 
     Example: "A, B, SELECT"
+    Return: vec<string>{"A", "B", "SELECT"}
 */
 std::vector<std::string> parseButtons(const std::string &line) {
     std::vector<std::string> buttons;
@@ -77,8 +80,8 @@ std::vector<std::string> parseButtons(const std::string &line) {
 
 /*
     Helper function. Compares two strings. The second argument is a char*
-   because it is being loaded from the config where it was defined (inside the
-   Config namespace).
+    because it is being loaded from the config where it was defined (inside the
+    Config namespace).
 */
 bool equalsIgnoreCase(const std::string &a, const char *b) {
     std::size_t i = 0;
@@ -92,51 +95,51 @@ bool equalsIgnoreCase(const std::string &a, const char *b) {
 /*
     Default constructor. The socket will listen in the port specified.
 */
-OperationInterface::OperationInterface(int port) : port_(port) {}
+OperationInterface::OperationInterface(int port) : operation_interface_port(port) {}
 
 OperationInterface::~OperationInterface() { stop(); }
 
 /*
     This function opens the socket to listen to the commands coming from the
-   esp8266. This function also sets the address as reusable so that if the
-   connection closes, upon restart it doesn't have to wait. Furthermore the
-   socket will also be non-blocking which is important because preemption can
-   happen. If an error happens it is logged by perror.
+    esp8266. This function also sets the address as reusable so that if the
+    connection closes, upon restart it doesn't have to wait. Furthermore the
+    socket will also be nonblocking which is important because preemption can
+    happen. If an error happens it is logged by perror.
 
     @return true - If the socket is listening.
     @return false - In the case of an error.
 */
 bool OperationInterface::start() {
-    listen_fd_ = socket(AF_INET, SOCK_STREAM, 0);
-    if (listen_fd_ < 0) {
+    listen_sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (listen_sock_fd < 0) {
         std::perror("[OpIface] socket");
         return false;
     }
-    if (!setReuseAddr(listen_fd_))
+    if (!setReuseAddr(listen_sock_fd))
         std::perror("[OpIface] setsockopt");
 
     sockaddr_in addr = {};
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    addr.sin_port = htons(static_cast<uint16_t>(port_));
+    addr.sin_port = htons(static_cast<uint16_t>(operation_interface_port));
 
-    if (bind(listen_fd_, reinterpret_cast<sockaddr *>(&addr), sizeof(addr)) < 0) {
+    if (bind(listen_sock_fd, reinterpret_cast<sockaddr *>(&addr), sizeof(addr)) < 0) {
         std::perror("[OpIface] bind");
         closeClient();
-        close(listen_fd_);
-        listen_fd_ = -1;
+        close(listen_sock_fd);
+        listen_sock_fd = -1;
         return false;
     }
-    if (listen(listen_fd_, kBacklog) < 0) {
+    if (listen(listen_sock_fd, kBacklog) < 0) {
         std::perror("[OpIface] listen");
-        close(listen_fd_);
-        listen_fd_ = -1;
+        close(listen_sock_fd);
+        listen_sock_fd = -1;
         return false;
     }
-    if (!setNonBlocking(listen_fd_))
+    if (!setNonBlocking(listen_sock_fd))
         std::perror("[OpIface] fcntl(listen)");
 
-    std::cout << "[OpIface] WiFi remote listening on TCP port " << port_ << "\n";
+    std::cout << "[OpIface] WiFi remote listening on TCP port " << operation_interface_port << "\n";
     return true;
 }
 
@@ -150,23 +153,23 @@ bool OperationInterface::start() {
 */
 OperationInterface::Events OperationInterface::poll() {
     Events ev;
-    if (listen_fd_ < 0)
+    if (listen_sock_fd < 0)
         return ev;
 
-    if (client_fd_ < 0)
+    if (client_sock_fd < 0)
         acceptClient();
-    if (client_fd_ >= 0)
+    if (client_sock_fd >= 0)
         drainClient(ev);
     return ev;
 }
 
 /*
-    Accepts the client and stores the socket fd on client_fd_.
+    Accepts the client and stores the socket fd on client_sock_fd.
 */
 void OperationInterface::acceptClient() {
     sockaddr_in client_addr = {};
     socklen_t client_len = sizeof(client_addr);
-    int fd = accept(listen_fd_, reinterpret_cast<sockaddr *>(&client_addr), &client_len);
+    int fd = accept(listen_sock_fd, reinterpret_cast<sockaddr *>(&client_addr), &client_len);
     if (fd < 0) {
         if (errno != EAGAIN && errno != EWOULDBLOCK && errno != EINTR)
             std::perror("[OpIface] accept");
@@ -181,24 +184,24 @@ void OperationInterface::acceptClient() {
     else
         std::cout << "[OpIface] remote connected: (unknown)\n";
 
-    client_fd_ = fd;
-    line_buffer_.clear();
+    client_sock_fd = fd;
+    line_buffer.clear();
 }
 
 /*
     This function helps receive the content that the client sends.
     How it works:
 
-        We temporarily receive the data using recv and hold the data inside buf.
-        The content that was just received then gets added to the line_buffer_
-   string. Then we try to searcu for a newline character. If we find it then it
-   means that we have successfully received one line of events from the esp8266.
-   This line will be processed by the handleLine function.
+    We temporarily receive the data using recv and hold the data inside buf.
+    The content that was just received then gets added to the line_buffer
+    string. Then we try to search for a newline character. If we find it then it
+    means that we have successfully received one line of events from the esp8266.
+    This line will be processed by the handleLine function.
 */
 void OperationInterface::drainClient(Events &ev) {
     char buf[kRecvBufSize];
     while (true) {
-        const ssize_t n = recv(client_fd_, buf, sizeof(buf), 0);
+        const ssize_t n = recv(client_sock_fd, buf, sizeof(buf), 0);
         if (n == 0) { // peer closed
             std::cout << "[OpIface] remote disconnected\n";
             closeClient(); // TODO: FIXME: should we close everytime ?
@@ -214,15 +217,15 @@ void OperationInterface::drainClient(Events &ev) {
             return;
         }
 
-        line_buffer_.append(buf, static_cast<std::size_t>(n));
+        line_buffer.append(buf, static_cast<std::size_t>(n));
 
         std::string::size_type pos;
-        while ((pos = line_buffer_.find('\n')) != std::string::npos) {
-            std::string line = line_buffer_.substr(0, pos);
+        while ((pos = line_buffer.find('\n')) != std::string::npos) {
+            std::string line = line_buffer.substr(0, pos);
             if (!line.empty() && line.back() == '\r')
                 line.pop_back();
             handleLine(line, ev);
-            line_buffer_.erase(0, pos + 1);
+            line_buffer.erase(0, pos + 1);
         }
     }
 }
@@ -247,15 +250,15 @@ void OperationInterface::handleLine(const std::string &line, Events &ev) {
 }
 
 /*
-    Helper function. Closes the client's socket but also clears the line_buffer_
-   string so old buttons do not get parsed if the client reconnects.
+    Helper function. Closes the client's socket but also clears the line_buffer
+    string so old buttons do not get parsed if the client reconnects.
 */
 void OperationInterface::closeClient() {
-    if (client_fd_ >= 0) {
-        close(client_fd_);
-        client_fd_ = -1;
+    if (client_sock_fd >= 0) {
+        close(client_sock_fd);
+        client_sock_fd = -1;
     }
-    line_buffer_.clear();
+    line_buffer.clear();
 }
 
 /*
@@ -263,8 +266,8 @@ void OperationInterface::closeClient() {
 */
 void OperationInterface::stop() {
     closeClient();
-    if (listen_fd_ >= 0) {
-        close(listen_fd_);
-        listen_fd_ = -1;
+    if (listen_sock_fd >= 0) {
+        close(listen_sock_fd);
+        listen_sock_fd = -1;
     }
 }

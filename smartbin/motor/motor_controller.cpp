@@ -1,14 +1,14 @@
 #include "motor_controller.h"
 
 void MotorController::stop_car() {
-    set_line(in1_front_offset_, 0);
-    set_line(in2_front_offset_, 0);
-    set_line(in3_front_offset_, 0);
-    set_line(in4_front_offset_, 0);
-    set_line(in1_rear_offset_, 0);
-    set_line(in2_rear_offset_, 0);
-    set_line(in3_rear_offset_, 0);
-    set_line(in4_rear_offset_, 0);
+    set_line(in1_front_offset, 0);
+    set_line(in2_front_offset, 0);
+    set_line(in3_front_offset, 0);
+    set_line(in4_front_offset, 0);
+    set_line(in1_rear_offset, 0);
+    set_line(in2_rear_offset, 0);
+    set_line(in3_rear_offset, 0);
+    set_line(in4_rear_offset, 0);
 }
 
 void MotorController::go_ahead() {
@@ -108,47 +108,47 @@ void MotorController::move_individual(std::vector<double> speeds) {
 
 void MotorController::set_line(unsigned int offset, int value) {
     enum gpiod_line_value val = value ? GPIOD_LINE_VALUE_ACTIVE : GPIOD_LINE_VALUE_INACTIVE;
-    if (gpiod_line_request_set_value(request_, offset, val) < 0) {
+    if (gpiod_line_request_set_value(request_gpio, offset, val) < 0) {
         throw std::runtime_error("Failed to set GPIO value");
     }
 }
 
 void MotorController::fr_ahead() {
-    set_line(in1_rear_offset_, 1);
-    set_line(in2_rear_offset_, 0);
+    set_line(in1_rear_offset, 1);
+    set_line(in2_rear_offset, 0);
 }
 
 void MotorController::fr_back() {
-    set_line(in1_rear_offset_, 0);
-    set_line(in2_rear_offset_, 1);
+    set_line(in1_rear_offset, 0);
+    set_line(in2_rear_offset, 1);
 }
 
 void MotorController::fl_ahead() {
-    set_line(in3_rear_offset_, 1);
-    set_line(in4_rear_offset_, 0);
+    set_line(in3_rear_offset, 1);
+    set_line(in4_rear_offset, 0);
 }
 
 void MotorController::fl_back() {
-    set_line(in3_rear_offset_, 0);
-    set_line(in4_rear_offset_, 1);
+    set_line(in3_rear_offset, 0);
+    set_line(in4_rear_offset, 1);
 }
 
 void MotorController::rr_ahead() {
-    set_line(in1_front_offset_, 1);
-    set_line(in2_front_offset_, 0);
+    set_line(in1_front_offset, 1);
+    set_line(in2_front_offset, 0);
 }
 
 void MotorController::rr_back() {
-    set_line(in1_front_offset_, 0);
-    set_line(in2_front_offset_, 1);
+    set_line(in1_front_offset, 0);
+    set_line(in2_front_offset, 1);
 }
 
 void MotorController::rl_ahead() {
-    set_line(in3_front_offset_, 1);
-    set_line(in4_front_offset_, 0);
+    set_line(in3_front_offset, 1);
+    set_line(in4_front_offset, 0);
 }
 
 void MotorController::rl_back() {
-    set_line(in3_front_offset_, 0);
-    set_line(in4_front_offset_, 1);
+    set_line(in3_front_offset, 0);
+    set_line(in4_front_offset, 1);
 }

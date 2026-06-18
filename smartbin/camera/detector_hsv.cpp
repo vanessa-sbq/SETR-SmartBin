@@ -5,10 +5,10 @@
 #include <iostream>
 
 HsvDetector::HsvDetector(DetectorConfig cfg) : motor_config(cfg) {
-    // focal length in pixels from horizontal FOV
-    m_focalPx = (::Config::CAM_VIDEO_WIDTH / 2.0) / std::tan(::Config::CAM_H_FOV_DEG * M_PI / 360.0);
-    m_objectSizeCm = ::Config::OBJECT_DIAMETER_M * 100.0;
-    m_kernel = cv::getStructuringElement(cv::MORPH_RECT, {3, 3});
+    // Focal length in pixels from horizontal FOV
+    focalPx = (::Config::CAM_VIDEO_WIDTH / 2.0) / std::tan(::Config::CAMERA_HEIGHT_FOV_DEGREES * M_PI / 360.0);
+    objectSizeCm = ::Config::OBJECT_DIAMETER_M * 100.0;
+    kernel_matrix = cv::getStructuringElement(cv::MORPH_RECT, {3, 3});
 }
 
 DetectionResult HsvDetector::detect(const cv::Mat &frame) {
@@ -18,10 +18,10 @@ DetectionResult HsvDetector::detect(const cv::Mat &frame) {
         return result;
 
     // Learned yellow colour model (Hue+Saturation Gaussian gate)
-    cv::cvtColor(frame, m_hsv, cv::COLOR_BGR2HSV);
+    cv::cvtColor(frame, hsv_matrix, cv::COLOR_BGR2HSV);
 
     cv::Mat ch[3];
-    cv::split(m_hsv, ch); // ch[0]=H, ch[1]=S, ch[2]=V (8-bit)
+    cv::split(hsv_matrix, ch); // ch[0]=H, ch[1]=S, ch[2]=V (8-bit)
     cv::Mat H, S;
     ch[0].convertTo(H, CV_32F);
     ch[1].convertTo(S, CV_32F);
@@ -30,19 +30,19 @@ DetectionResult HsvDetector::detect(const cv::Mat &frame) {
     cv::Mat dH = H - m.mean[0];
     cv::Mat dS = S - m.mean[1];
 
-    // Mahalanobis² = a·dH² + (b+c)·dH·dS + d·dS²,  invCov = [[a,b],[c,d]]
+    // Mahalanobis^2 = a*dH^2 + (b+c)*dH*dS + d*dS^2,  invCov = [[a,b],[c,d]]
     cv::Mat mahal = m.invCov(0, 0) * dH.mul(dH) + (m.invCov(0, 1) + m.invCov(1, 0)) * dH.mul(dS) + m.invCov(1, 1) * dS.mul(dS);
 
-    m_mask = (mahal < m.threshold); // CV_8U, 255 where yellow
-    m_mask.setTo(0, ch[2] < motor_config.minValue); // drop near-black (hue noise)
+    mask_matrix = (mahal < m.threshold);
+    mask_matrix.setTo(0, ch[2] < motor_config.minValue); // Drop near black hue values
 
-    // Morphological cleanup
-    cv::erode(m_mask, m_mask, m_kernel, {-1, -1}, motor_config.erodeIterations);
-    cv::dilate(m_mask, m_mask, m_kernel, {-1, -1}, motor_config.dilateIterations);
+    // Cleanup
+    cv::erode(mask_matrix, mask_matrix, kernel_matrix, {-1, -1}, motor_config.erodeIterations);
+    cv::dilate(mask_matrix, mask_matrix, kernel_matrix, {-1, -1}, motor_config.dilateIterations);
 
     // Contour detection
     std::vector<std::vector<cv::Point>> contours;
-    cv::findContours(m_mask, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+    cv::findContours(mask_matrix, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
     if (contours.empty())
         return result;
@@ -73,7 +73,7 @@ DetectionResult HsvDetector::detect(const cv::Mat &frame) {
         double pixelSize = std::max(br.width, br.height);
         if (pixelSize == 0.0)
             continue;
-        double distM = (m_objectSizeCm * m_focalPx) / pixelSize / 100.0;
+        double distM = (objectSizeCm * focalPx) / pixelSize / 100.0;
         if (distM > motor_config.maxDistanceM)
             continue;
         filtered.push_back(cp);

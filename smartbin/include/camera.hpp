@@ -13,10 +13,10 @@ class Camera {
     void release();
 
   private:
-    int m_deviceIndex;
-    int m_width;
-    int m_height;
-    int m_fps;
-    lccv::PiCamera m_cam;
-    bool m_isRunning = false;
+    int deviceIndex;
+    int camera_width;
+    int camera_height;
+    int camera_fps;
+    lccv::PiCamera lccv_camera;
+    bool isRunning = false;
 };

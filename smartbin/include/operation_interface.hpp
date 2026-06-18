@@ -2,14 +2,14 @@
 #include <string>
 
 // Operation Interface
-// Receives operator commands from an ESP8266 WiFi remote over TCP and translates button presses into control events for the tasks.
-// ESP8266 connects as a TCP client and sends newline-terminated lines of comma-separated button names.
-// Every call is non-blocking so the owning periodic task keeps its period.
+// Receives operator commands from an esp8266 WiFi remote over TCP and translates button presses into control events for the tasks.
+// esp8266 connects as a TCP client and sends newline terminated lines of comma separated button names.
+// Every call is nonblocking so the owning periodic task keeps its period.
 class OperationInterface {
   public:
     /*
         toggleActive is triggered when the START button is pressed. This value will be used to start/stop the motors.
-        quit is triggered upon pressing 'q'. This will make the process stop.
+        quit is triggered upon pressing the B button. This will make all the tasks and the program stop.
     */
     struct Events {
         bool toggleActive = false;
@@ -27,8 +27,8 @@ class OperationInterface {
 
     Events poll();
 
-    bool listening() const { return listen_fd_ >= 0; }
-    bool clientConnected() const { return client_fd_ >= 0; }
+    bool listening() const { return listen_sock_fd >= 0; }
+    bool clientConnected() const { return client_sock_fd >= 0; }
 
   private:
     void acceptClient();
@@ -36,8 +36,8 @@ class OperationInterface {
     void handleLine(const std::string &line, Events &ev);
     void closeClient();
 
-    int port_;
-    int listen_fd_ = -1;
-    int client_fd_ = -1;
-    std::string line_buffer_;
+    int operation_interface_port;
+    int listen_sock_fd = -1;
+    int client_sock_fd = -1;
+    std::string line_buffer;
 };
