@@ -3,13 +3,13 @@
 namespace Config {
 // Camera
 constexpr int DEVICE_INDEX = 0;
-constexpr int CAM_VIDEO_WIDTH = 640;
-constexpr int CAM_VIDEO_HEIGHT = 480;
+constexpr int CAM_VIDEO_WIDTH = 1280;
+constexpr int CAM_VIDEO_HEIGHT = 960;
 constexpr int CAM_FPS = 30;
 constexpr float CAMERA_HEIGHT_FOV_DEGREES = 102.f;
 
 // Detector
-constexpr float OBJECT_DIAMETER_M = 0.25f; // Object size
+constexpr float OBJECT_DIAMETER_M = 0.15f; // Object size
 constexpr int DETECTOR_MIN_AREA = 80; // px^2
 constexpr int DETECTOR_ERODE_ITER = 1;
 constexpr int DETECTOR_DILATE_ITER = 2;
@@ -42,9 +42,9 @@ constexpr bool SHOW_WINDOW = false;
 // Kernel requires runtime (C) <= deadline (D) <= period (T).
 
 // Vision Detection: periodic, paced by the camera (30 fps)
-constexpr long long TASK_VISION_RUNTIME_NS = 20'000'000; // 20ms
-constexpr long long TASK_VISION_DEADLINE_NS = 33'333'333; // 33ms
-constexpr long long TASK_VISION_PERIOD_NS = 33'333'333; // 33ms
+constexpr long long TASK_VISION_RUNTIME_NS = 30'000'000; // 20ms
+constexpr long long TASK_VISION_DEADLINE_NS = 50'000'000; // 33ms
+constexpr long long TASK_VISION_PERIOD_NS = 50'000'000; // 33ms
 
 // Trajectory Prediction: sporadic, released by a detection event.
 // minimum inter-arrival time = camera period. D < T: a prediction
@@ -55,8 +55,8 @@ constexpr long long TASK_PRED_PERIOD_NS = 33'333'333; // 33ms
 
 // Motor Control: periodic 50 Hz control loop. D < T so urgent commands
 // (e.g. stop) land early in the cycle.
-constexpr long long TASK_MOTOR_RUNTIME_NS = 2'000'000; // 2ms
-constexpr long long TASK_MOTOR_DEADLINE_NS = 5'000'000; // 5ms
+constexpr long long TASK_MOTOR_RUNTIME_NS = 5'000'000; // 2ms
+constexpr long long TASK_MOTOR_DEADLINE_NS = 20'000'000; // 5ms
 constexpr long long TASK_MOTOR_PERIOD_NS = 20'000'000; // 20ms
 
 // Operation Interface task
