@@ -4,6 +4,7 @@
 #include "hardware_drive.hpp"
 #include "motor_translation.hpp"
 #include "operation_interface.hpp"
+#include "rt_stats.hpp"
 
 #include <atomic>
 #include <cerrno>
@@ -49,6 +50,14 @@ static struct {
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     MotorCommand cmd{};
 } global_prediction_target;
+
+// Per-task WCET / WCRT recorders. Filled in by each task, printed in main()
+// after the threads join. Budgets/deadlines come straight from config.hpp so
+// the report flags any job that overran its CBS runtime or missed its deadline.
+static RtStats g_visionStats{"vision", Config::TASK_VISION_RUNTIME_NS, Config::TASK_VISION_DEADLINE_NS};
+static RtStats g_predStats{"prediction", Config::TASK_PRED_RUNTIME_NS, Config::TASK_PRED_DEADLINE_NS};
+static RtStats g_motorStats{"motor", Config::TASK_MOTOR_RUNTIME_NS, Config::TASK_MOTOR_DEADLINE_NS};
+static RtStats g_opStats{"opIface", Config::TASK_UI_RUNTIME_NS, Config::TASK_UI_DEADLINE_NS};
 
 /*
     Global app context.
@@ -138,6 +147,10 @@ static void *visionTask(void *arg) {
             continue;
         }
 
+        // A fresh frame is the release event for this periodic job.
+        uint64_t rel = nowNs(CLOCK_MONOTONIC);
+        uint64_t cpu0 = nowNs(CLOCK_THREAD_CPUTIME_ID);
+
         // Obtain detection result for this frame
         DetectionResult det = ctx.detector->detect(frame);
 
@@ -147,6 +160,8 @@ static void *visionTask(void *arg) {
         ++global_object_position.seq;
         pthread_cond_signal(&global_object_position.cond); // Release Trajectory Prediction
         pthread_mutex_unlock(&global_object_position.mtx);
+
+        rtRecord(g_visionStats, rel, cpu0, nowNs(CLOCK_THREAD_CPUTIME_ID), nowNs(CLOCK_MONOTONIC));
     }
 
     // Wake the prediction task so it can observe global_program_running and exit.
@@ -173,11 +188,16 @@ static void *predictionTask(void *arg) {
         while (global_object_position.seq == lastSeq && global_program_running)
             // Task sleeps until a new detection result is available (vision task signals global_object_position.cond)
             pthread_cond_wait(&global_object_position.cond, &global_object_position.mtx);
+
+        // Woken by a fresh sample: that signal is this sporadic job's release.
+        uint64_t rel = nowNs(CLOCK_MONOTONIC);
+        uint64_t cpu0 = nowNs(CLOCK_THREAD_CPUTIME_ID);
+
         DetectionResult det = global_object_position.det; // Copy the detection result while holding the lock
         lastSeq = global_object_position.seq;
         pthread_mutex_unlock(&global_object_position.mtx);
 
-        // Early exit if the process is shutting down
+        // Early exit if the process is shutting down (woken for shutdown, not a real job)
         if (!global_program_running)
             break;
 
@@ -188,6 +208,8 @@ static void *predictionTask(void *arg) {
         pthread_mutex_lock(&global_prediction_target.mtx);
         global_prediction_target.cmd = cmd;
         pthread_mutex_unlock(&global_prediction_target.mtx);
+
+        rtRecord(g_predStats, rel, cpu0, nowNs(CLOCK_THREAD_CPUTIME_ID), nowNs(CLOCK_MONOTONIC));
     }
     return nullptr;
 }
@@ -208,6 +230,10 @@ static void *motorTask(void *arg) {
     clock_gettime(CLOCK_MONOTONIC, &next);
 
     while (global_program_running) {
+        // `next` holds the time we were scheduled to wake for this period: the release.
+        uint64_t rel = timespecToNs(next);
+        uint64_t cpu0 = nowNs(CLOCK_THREAD_CPUTIME_ID);
+
         // Read the latest motor command from the prediction task
         MotorCommand cmd;
         pthread_mutex_lock(&global_prediction_target.mtx);
@@ -221,6 +247,8 @@ static void *motorTask(void *arg) {
         if (ctx.hwOk)
             hardwareApply(cmd);
 
+        rtRecord(g_motorStats, rel, cpu0, nowNs(CLOCK_THREAD_CPUTIME_ID), nowNs(CLOCK_MONOTONIC));
+
         // Sleep until the next period
         timespecAddNs(next, Config::TASK_MOTOR_PERIOD_NS);
         clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next, nullptr);
@@ -230,7 +258,6 @@ static void *motorTask(void *arg) {
         hardwareApply(stopCommand()); // never leave the wheels spinning
     return nullptr;
 }
-
 
 /**
  * Task: Operation Interface
@@ -254,12 +281,18 @@ static void *opInterfaceTask(void *arg) {
     clock_gettime(CLOCK_MONOTONIC, &next);
 
     while (global_program_running) {
+        // `next` holds the time we were scheduled to wake for this period: the release.
+        uint64_t rel = timespecToNs(next);
+        uint64_t cpu0 = nowNs(CLOCK_THREAD_CPUTIME_ID);
+
         // Non-blocking WiFi remote input
         OperationInterface::Events ev = remote.poll();
         if (ev.toggleActive)
             toggleActive();
         if (ev.quit)
             global_program_running = false;
+
+        rtRecord(g_opStats, rel, cpu0, nowNs(CLOCK_THREAD_CPUTIME_ID), nowNs(CLOCK_MONOTONIC));
 
         // Sleep until the next period
         timespecAddNs(next, Config::TASK_UI_PERIOD_NS);
@@ -306,6 +339,18 @@ int main() {
     std::cout << "SmartBin running.\n";
 
     pthread_t tVision, tPrediction, tMotor, tOpIface;
+
+    // pthread_mutexattr_setprotocol(&, PTHREAD_PRIO_INHERIT);
+    // pthread_mutexattr_setprotocol(&global_prediction_target.mtx, PTHREAD_PRIO_INHERIT);
+    // global_object_position.mtx
+
+    pthread_mutexattr_t camera_mutex_attr;
+    pthread_mutexattr_setprotocol(&camera_mutex_attr, PTHREAD_PRIO_INHERIT);
+    pthread_mutexattr_init(&camera_mutex_attr);
+    pthread_mutex_init(&global_prediction_target.mtx, &camera_mutex_attr);
+
+    pthread_mutex_init(&global_object_position.mtx, &camera_mutex_attr);
+
     pthread_create(&tVision, nullptr, visionTask, &ctx); // computer vision task
     pthread_create(&tPrediction, nullptr, predictionTask, &ctx); // prediction task
     pthread_create(&tMotor, nullptr, motorTask, &ctx); // motor task
@@ -317,6 +362,13 @@ int main() {
     pthread_join(tOpIface, nullptr);
 
     std::cout << "\nShutting down. Goodbye :(\n";
+
+    // Per-task WCET / WCRT summary (compare against the config.hpp budgets).
+    rtReport(g_visionStats);
+    rtReport(g_predStats);
+    rtReport(g_motorStats);
+    rtReport(g_opStats);
+
     hardwareShutdown();
     cam.release();
     cv::destroyAllWindows();
