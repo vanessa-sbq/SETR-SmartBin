@@ -204,7 +204,7 @@ void OperationInterface::drainClient(Events &ev) {
         const ssize_t n = recv(client_sock_fd, buf, sizeof(buf), 0);
         if (n == 0) { // peer closed
             std::cout << "[OpIface] remote disconnected\n";
-            closeClient(); // TODO: FIXME: should we close everytime ?
+            closeClient();
             return;
         }
         if (n < 0) {
