@@ -42,9 +42,9 @@ constexpr bool SHOW_WINDOW = false;
 // Kernel requires runtime (C) <= deadline (D) <= period (T).
 
 // Vision Detection: periodic, paced by the camera (30 fps)
-constexpr long long TASK_VISION_RUNTIME_NS = 30'000'000; // 20ms
-constexpr long long TASK_VISION_DEADLINE_NS = 50'000'000; // 33ms
-constexpr long long TASK_VISION_PERIOD_NS = 50'000'000; // 33ms
+constexpr long long TASK_VISION_RUNTIME_NS = 30'000'000; // 30ms
+constexpr long long TASK_VISION_DEADLINE_NS = 50'000'000; // 50ms
+constexpr long long TASK_VISION_PERIOD_NS = 50'000'000; // 50ms
 
 // Trajectory Prediction: sporadic, released by a detection event.
 // minimum inter-arrival time = camera period. D < T: a prediction
@@ -55,8 +55,8 @@ constexpr long long TASK_PRED_PERIOD_NS = 33'333'333; // 33ms
 
 // Motor Control: periodic 50 Hz control loop. D < T so urgent commands
 // (e.g. stop) land early in the cycle.
-constexpr long long TASK_MOTOR_RUNTIME_NS = 5'000'000; // 2ms
-constexpr long long TASK_MOTOR_DEADLINE_NS = 20'000'000; // 5ms
+constexpr long long TASK_MOTOR_RUNTIME_NS = 5'000'000; // 5ms
+constexpr long long TASK_MOTOR_DEADLINE_NS = 20'000'000; // 20ms
 constexpr long long TASK_MOTOR_PERIOD_NS = 20'000'000; // 20ms
 
 // Operation Interface task
