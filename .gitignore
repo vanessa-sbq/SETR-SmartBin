@@ -5,3 +5,17 @@ yolo26n.pt
 .vscode
 .pio
 .DS_Store
+
+# build artifacts
+**/build*/
+**/CMakeFiles/
+**/Release/
+*.o
+*.exe
+*.dll
+
+# editor / OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store

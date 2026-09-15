@@ -4,7 +4,7 @@
 #define SSID "TheBlutotDevice"
 #define PSW "aaaaaaaa"
 
-const char* hostIP = "192.168.4.2";
+const char* hostIP = "192.xxx.x.x"; // Replace with the actual IP address of the host
 const uint16_t port = 6767;
 
 static unsigned long lastSend = 0;
