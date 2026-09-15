@@ -1,0 +1,4 @@
+C:/Users/Utilizador/Documents/GitHub/SETR-SmartBin/camera_analysis/build/CMakeFiles/trashcan.dir
+C:/Users/Utilizador/Documents/GitHub/SETR-SmartBin/camera_analysis/build/CMakeFiles/INSTALL.dir
+C:/Users/Utilizador/Documents/GitHub/SETR-SmartBin/camera_analysis/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Utilizador/Documents/GitHub/SETR-SmartBin/camera_analysis/build/CMakeFiles/ZERO_CHECK.dir

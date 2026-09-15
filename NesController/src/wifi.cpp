@@ -7,9 +7,13 @@
 const char* hostIP = "192.168.4.2";
 const uint16_t port = 6767;
 
+static unsigned long lastSend = 0;
+
 WiFiEventHandler stationConnectedHandler;
 WiFiEventHandler stationDisconnectedHandler;
 WiFiClient client;
+
+std::stringstream ss;
 
 enum WIFI_STATUS {
     BOOT,
@@ -61,11 +65,12 @@ void connectToSocket() {
     conn_status = CLIENT_READY;
 }
 
-void wifiLoop(std::string message) {
+void wifiLoop(std::map<std::string, ButtonState> message) {
     switch (conn_status) {
     case BOOT: // Do nothing. Still waiiting for a connection.
         break;
     case DISCONNECTED:
+        Serial.println("Got Disconnected.");
         if (!client.connected()) {
             conn_status = BOOT;
         }
@@ -76,12 +81,43 @@ void wifiLoop(std::string message) {
         connectToSocket();
         break;
     case CLIENT_READY:
-        // Example: Send some data once connected
-        Serial.println("Sending data to client");
-        client.println(message.c_str());
+
         if (!client.connected()) {
             conn_status = CONNECTED;
         }
+        
+        /* if (millis() - lastSend < 200) break;   // throttle to ~30 ms
+        lastSend = millis(); */
+
+        Serial.println("Sending data to client");
+
+        for (auto row : message) {
+
+            std::string button = row.first;
+
+            ButtonState state = row.second;
+
+            if (state.pressed && !state.previous) {
+                // If the stringstream already has elements inside then we should append a comma.
+                if (ss.tellp() > 0) {
+                    ss << ",";  
+                }
+                
+                ss << button;
+            }
+
+
+        }
+
+        client.println(ss.str().c_str());
+
+        Serial.printf("Data: %s\n", ss.str().c_str());
+
+
+        // Clear the stringstream for the next loop iteration
+        ss.str("");
+        ss.clear();
+
         client.flush();
         break;
     default:

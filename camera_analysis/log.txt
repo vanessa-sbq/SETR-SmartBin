@@ -1,0 +1,1460 @@
+[Camera] Opened WebCam/Video via standard cross-platform OpenCV
+Trashcan tracker running. Press Ctrl-C to stop.
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD )  angle=270deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.624 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.624 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.654 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.654 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.127 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.127 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.127 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.127 m  (RIGHT)  angle=  0deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.861 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.861 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.861 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.861 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.436 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.436 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.436 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.436 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=2.179 m  (RIGHT)  angle=  0deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX=  0.025 m/s  velY= -0.050 m/s  dist=0.757 m  (BWD RIGHT)  angle=297deg
+[MOTOR] velX=  0.025 m/s  velY= -0.050 m/s  dist=0.757 m  (BWD RIGHT)  angle=297deg
+[MOTOR] velX=  0.025 m/s  velY= -0.050 m/s  dist=0.757 m  (BWD RIGHT)  angle=297deg
+[MOTOR] velX=  0.025 m/s  velY= -0.050 m/s  dist=0.757 m  (BWD RIGHT)  angle=297deg
+[MOTOR] velX=  0.024 m/s  velY= -0.038 m/s  dist=0.867 m  (BWD RIGHT)  angle=303deg
+[MOTOR] velX=  0.024 m/s  velY= -0.038 m/s  dist=0.867 m  (BWD RIGHT)  angle=303deg
+[MOTOR] velX=  0.024 m/s  velY= -0.038 m/s  dist=0.867 m  (BWD RIGHT)  angle=303deg
+[MOTOR] velX=  0.024 m/s  velY= -0.038 m/s  dist=0.867 m  (BWD RIGHT)  angle=303deg
+[MOTOR] velX=  0.000 m/s  velY=  0.065 m/s  dist=1.787 m  (FWD )  angle= 90deg
+[MOTOR] velX=  0.000 m/s  velY=  0.065 m/s  dist=1.787 m  (FWD )  angle= 90deg
+[MOTOR] velX=  0.000 m/s  velY=  0.065 m/s  dist=1.787 m  (FWD )  angle= 90deg
+[MOTOR] velX=  0.000 m/s  velY=  0.065 m/s  dist=1.787 m  (FWD )  angle= 90deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.056 m/s  velY= -0.091 m/s  dist=0.388 m  (BWD RIGHT)  angle=302deg
+[MOTOR] velX=  0.076 m/s  velY= -0.100 m/s  dist=0.279 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.076 m/s  velY= -0.100 m/s  dist=0.279 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.076 m/s  velY= -0.100 m/s  dist=0.279 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.276 m  (BWD RIGHT)  angle=308deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.276 m  (BWD RIGHT)  angle=308deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.276 m  (BWD RIGHT)  angle=308deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.276 m  (BWD RIGHT)  angle=308deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.274 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.274 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.274 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.077 m/s  velY= -0.100 m/s  dist=0.274 m  (BWD RIGHT)  angle=307deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.025 m/s  velY=  0.000 m/s  dist=0.510 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.025 m/s  velY=  0.000 m/s  dist=0.510 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.025 m/s  velY=  0.000 m/s  dist=0.510 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.025 m/s  velY=  0.000 m/s  dist=0.510 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.293 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.293 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.293 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.293 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.303 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.303 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.303 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.303 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.303 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.303 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.303 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.303 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.302 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.302 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.302 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.302 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.305 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.305 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.305 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.305 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.306 m  (BWD RIGHT)  angle=317deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.306 m  (BWD RIGHT)  angle=317deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.306 m  (BWD RIGHT)  angle=317deg
+[MOTOR] velX=  0.100 m/s  velY= -0.095 m/s  dist=0.306 m  (BWD RIGHT)  angle=317deg
+[MOTOR] velX=  0.100 m/s  velY= -0.091 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.091 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.091 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.091 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.090 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.090 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.090 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.090 m/s  dist=0.315 m  (BWD RIGHT)  angle=318deg
+[MOTOR] velX=  0.100 m/s  velY= -0.086 m/s  dist=0.322 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.086 m/s  dist=0.322 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.086 m/s  dist=0.322 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.086 m/s  dist=0.322 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.322 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.322 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.322 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.322 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.085 m/s  dist=0.315 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.085 m/s  dist=0.315 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.085 m/s  dist=0.315 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.085 m/s  dist=0.315 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.320 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.320 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.320 m  (BWD RIGHT)  angle=320deg
+[MOTOR] velX=  0.100 m/s  velY= -0.084 m/s  dist=0.320 m  (BWD RIGHT)  angle=320deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.088 m/s  dist=1.353 m  (FWD RIGHT)  angle= 41deg
+[MOTOR] velX=  0.100 m/s  velY= -0.056 m/s  dist=0.390 m  (BWD RIGHT)  angle=331deg
+[MOTOR] velX=  0.100 m/s  velY= -0.056 m/s  dist=0.390 m  (BWD RIGHT)  angle=331deg
+[MOTOR] velX=  0.100 m/s  velY= -0.056 m/s  dist=0.390 m  (BWD RIGHT)  angle=331deg
+[MOTOR] velX=  0.100 m/s  velY= -0.066 m/s  dist=0.902 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.066 m/s  dist=0.902 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.066 m/s  dist=0.902 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.066 m/s  dist=0.902 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=0.835 m  (BWD RIGHT)  angle=325deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=0.835 m  (BWD RIGHT)  angle=325deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=0.835 m  (BWD RIGHT)  angle=325deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=0.835 m  (BWD RIGHT)  angle=325deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=1.015 m  (BWD RIGHT)  angle=324deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=1.015 m  (BWD RIGHT)  angle=324deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=1.015 m  (BWD RIGHT)  angle=324deg
+[MOTOR] velX=  0.100 m/s  velY= -0.071 m/s  dist=1.015 m  (BWD RIGHT)  angle=324deg
+[MOTOR] velX=  0.100 m/s  velY= -0.058 m/s  dist=1.089 m  (BWD RIGHT)  angle=330deg
+[MOTOR] velX=  0.100 m/s  velY= -0.058 m/s  dist=1.089 m  (BWD RIGHT)  angle=330deg
+[MOTOR] velX=  0.100 m/s  velY= -0.058 m/s  dist=1.089 m  (BWD RIGHT)  angle=330deg
+[MOTOR] velX=  0.100 m/s  velY= -0.058 m/s  dist=1.089 m  (BWD RIGHT)  angle=330deg
+[MOTOR] velX=  0.100 m/s  velY= -0.062 m/s  dist=1.039 m  (BWD RIGHT)  angle=328deg
+[MOTOR] velX=  0.100 m/s  velY= -0.062 m/s  dist=1.039 m  (BWD RIGHT)  angle=328deg
+[MOTOR] velX=  0.100 m/s  velY= -0.062 m/s  dist=1.039 m  (BWD RIGHT)  angle=328deg
+[MOTOR] velX=  0.100 m/s  velY= -0.062 m/s  dist=1.039 m  (BWD RIGHT)  angle=328deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.418 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.418 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.418 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.418 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.595 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.595 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.595 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.595 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.374 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.374 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.595 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.374 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.374 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.441 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.441 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.441 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY= -0.046 m/s  dist=1.241 m  (BWD RIGHT)  angle=335deg
+[MOTOR] velX=  0.100 m/s  velY= -0.046 m/s  dist=1.241 m  (BWD RIGHT)  angle=335deg
+[MOTOR] velX=  0.100 m/s  velY= -0.046 m/s  dist=1.241 m  (BWD RIGHT)  angle=335deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.060 m/s  velY= -0.038 m/s  dist=0.475 m  (BWD RIGHT)  angle=328deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.077 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.042 m/s  velY= -0.100 m/s  dist=0.272 m  (BWD LEFT )  angle=247deg
+[MOTOR] velX=  0.000 m/s  velY= -0.070 m/s  dist=1.175 m  (BWD )  angle=270deg
+[MOTOR] velX= -0.039 m/s  velY=  0.100 m/s  dist=1.258 m  (FWD LEFT )  angle=112deg
+[MOTOR] velX= -0.039 m/s  velY=  0.100 m/s  dist=1.258 m  (FWD LEFT )  angle=112deg
+[MOTOR] velX= -0.039 m/s  velY=  0.100 m/s  dist=1.258 m  (FWD LEFT )  angle=112deg
+[MOTOR] velX=  0.007 m/s  velY= -0.100 m/s  dist=0.249 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.007 m/s  velY= -0.100 m/s  dist=0.249 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.007 m/s  velY= -0.100 m/s  dist=0.249 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.007 m/s  velY= -0.100 m/s  dist=0.249 m  (BWD )  angle=270deg
+[MOTOR] velX= -0.098 m/s  velY=  0.025 m/s  dist=0.982 m  (FWD LEFT )  angle=166deg
+[MOTOR] velX= -0.098 m/s  velY=  0.025 m/s  dist=0.982 m  (FWD LEFT )  angle=166deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.333 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.333 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.333 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.032 m/s  velY= -0.100 m/s  dist=0.212 m  (BWD LEFT )  angle=252deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.698 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.770 m  (BWD )  angle=270deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.036 m/s  velY= -0.100 m/s  dist=0.366 m  (BWD LEFT )  angle=250deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.042 m/s  velY= -0.100 m/s  dist=0.344 m  (BWD LEFT )  angle=247deg
+[MOTOR] velX=  0.100 m/s  velY=  0.046 m/s  dist=0.643 m  (FWD RIGHT)  angle= 25deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.489 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.489 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.567 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.567 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.314 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.314 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.901 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.441 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.441 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.441 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.718 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.241 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.036 m/s  velY= -0.100 m/s  dist=0.357 m  (BWD RIGHT)  angle=290deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.624 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.624 m  (FWD LEFT )  angle=135deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.057 m/s  velY=  0.000 m/s  dist=0.667 m  (LEFT )  angle=180deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.414 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.414 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.414 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.063 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=302deg
+[MOTOR] velX=  0.063 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=302deg
+[MOTOR] velX=  0.063 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=302deg
+[MOTOR] velX=  0.063 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=302deg
+[MOTOR] velX= -0.019 m/s  velY= -0.100 m/s  dist=0.608 m  (BWD LEFT )  angle=259deg
+[MOTOR] velX= -0.019 m/s  velY= -0.100 m/s  dist=0.608 m  (BWD LEFT )  angle=259deg
+[MOTOR] velX= -0.019 m/s  velY= -0.100 m/s  dist=0.608 m  (BWD LEFT )  angle=259deg
+[MOTOR] velX= -0.019 m/s  velY= -0.100 m/s  dist=0.608 m  (BWD LEFT )  angle=259deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.058 m/s  velY= -0.100 m/s  dist=0.912 m  (BWD LEFT )  angle=240deg
+[MOTOR] velX= -0.058 m/s  velY= -0.100 m/s  dist=0.912 m  (BWD LEFT )  angle=240deg
+[MOTOR] velX= -0.058 m/s  velY= -0.100 m/s  dist=0.912 m  (BWD LEFT )  angle=240deg
+[MOTOR] velX= -0.058 m/s  velY= -0.100 m/s  dist=0.912 m  (BWD LEFT )  angle=240deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.080 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.080 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.080 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=3.080 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.023 m/s  velY= -0.100 m/s  dist=0.777 m  (BWD LEFT )  angle=257deg
+[MOTOR] velX= -0.023 m/s  velY= -0.100 m/s  dist=0.777 m  (BWD LEFT )  angle=257deg
+[MOTOR] velX= -0.023 m/s  velY= -0.100 m/s  dist=0.777 m  (BWD LEFT )  angle=257deg
+[MOTOR] velX= -0.023 m/s  velY= -0.100 m/s  dist=0.777 m  (BWD LEFT )  angle=257deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.540 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.351 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.063 m/s  velY= -0.100 m/s  dist=0.867 m  (BWD LEFT )  angle=238deg
+[MOTOR] velX= -0.063 m/s  velY= -0.100 m/s  dist=0.867 m  (BWD LEFT )  angle=238deg
+[MOTOR] velX= -0.063 m/s  velY= -0.100 m/s  dist=0.867 m  (BWD LEFT )  angle=238deg
+[MOTOR] velX= -0.063 m/s  velY= -0.100 m/s  dist=0.867 m  (BWD LEFT )  angle=238deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.654 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.654 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.654 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.654 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.573 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.573 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.573 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.573 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.015 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.015 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.015 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.015 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.950 m  (BWD )  angle=270deg
+[MOTOR] velX= -0.029 m/s  velY= -0.100 m/s  dist=0.982 m  (BWD LEFT )  angle=254deg
+[MOTOR] velX= -0.029 m/s  velY= -0.100 m/s  dist=0.982 m  (BWD LEFT )  angle=254deg
+[MOTOR] velX= -0.029 m/s  velY= -0.100 m/s  dist=0.982 m  (BWD LEFT )  angle=254deg
+[MOTOR] velX= -0.029 m/s  velY= -0.100 m/s  dist=0.982 m  (BWD LEFT )  angle=254deg
+[MOTOR] velX= -0.054 m/s  velY= -0.100 m/s  dist=0.921 m  (BWD LEFT )  angle=241deg
+[MOTOR] velX= -0.054 m/s  velY= -0.100 m/s  dist=0.921 m  (BWD LEFT )  angle=241deg
+[MOTOR] velX= -0.054 m/s  velY= -0.100 m/s  dist=0.921 m  (BWD LEFT )  angle=241deg
+[MOTOR] velX= -0.054 m/s  velY= -0.100 m/s  dist=0.921 m  (BWD LEFT )  angle=241deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.057 m/s  velY= -0.051 m/s  dist=0.470 m  (BWD LEFT )  angle=222deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.296 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.296 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.296 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.087 m/s  dist=0.325 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.087 m/s  dist=0.325 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.087 m/s  dist=0.325 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.087 m/s  dist=0.325 m  (BWD RIGHT)  angle=319deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.292 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.288 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.286 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.289 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.282 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.282 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.282 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.282 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.285 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX= -0.033 m/s  velY= -0.065 m/s  dist=0.379 m  (BWD LEFT )  angle=243deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.233 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.233 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.233 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.306 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.306 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.306 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.306 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.300 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.305 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.305 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.305 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.305 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.540 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.540 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.540 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=1.540 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.291 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.294 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.298 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.298 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.298 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.298 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.414 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.414 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.414 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.414 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX= -0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD LEFT )  angle=135deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.316 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.316 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.316 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.098 m/s  dist=0.316 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.313 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.310 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.310 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.310 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.310 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.096 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.096 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.096 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.096 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] velX=  0.100 m/s  velY= -0.097 m/s  dist=0.309 m  (BWD RIGHT)  angle=316deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.000 m/s  velY= -0.100 m/s  dist=0.260 m  (BWD )  angle=270deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.629 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.629 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.629 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.117 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.738 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.738 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.738 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.738 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.784 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.784 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.784 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.784 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.859 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.859 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.859 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.859 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.961 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.961 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.961 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.961 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.353 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.353 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.353 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.353 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.308 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.308 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.308 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.308 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.942 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.065 m/s  velY= -0.100 m/s  dist=0.851 m  (BWD LEFT )  angle=237deg
+[MOTOR] velX= -0.065 m/s  velY= -0.100 m/s  dist=0.851 m  (BWD LEFT )  angle=237deg
+[MOTOR] velX= -0.065 m/s  velY= -0.100 m/s  dist=0.851 m  (BWD LEFT )  angle=237deg
+[MOTOR] velX= -0.065 m/s  velY= -0.100 m/s  dist=0.851 m  (BWD LEFT )  angle=237deg
+[MOTOR] velX=  0.100 m/s  velY=  0.067 m/s  dist=0.662 m  (FWD RIGHT)  angle= 34deg
+[MOTOR] velX=  0.100 m/s  velY=  0.067 m/s  dist=0.662 m  (FWD RIGHT)  angle= 34deg
+[MOTOR] velX=  0.100 m/s  velY=  0.067 m/s  dist=0.662 m  (FWD RIGHT)  angle= 34deg
+[MOTOR] velX=  0.100 m/s  velY=  0.067 m/s  dist=0.662 m  (FWD RIGHT)  angle= 34deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.076 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.076 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.076 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=1.076 m  (BWD LEFT )  angle=225deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.387 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.068 m/s  dist=0.369 m  (BWD RIGHT)  angle=326deg
+[MOTOR] velX=  0.100 m/s  velY= -0.068 m/s  dist=0.369 m  (BWD RIGHT)  angle=326deg
+[MOTOR] velX=  0.100 m/s  velY= -0.068 m/s  dist=0.369 m  (BWD RIGHT)  angle=326deg
+[MOTOR] velX=  0.100 m/s  velY= -0.068 m/s  dist=0.369 m  (BWD RIGHT)  angle=326deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.258 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.074 m/s  dist=0.362 m  (BWD RIGHT)  angle=323deg
+[MOTOR] velX=  0.100 m/s  velY= -0.074 m/s  dist=0.362 m  (BWD RIGHT)  angle=323deg
+[MOTOR] velX=  0.100 m/s  velY= -0.074 m/s  dist=0.362 m  (BWD RIGHT)  angle=323deg
+[MOTOR] velX=  0.100 m/s  velY= -0.074 m/s  dist=0.362 m  (BWD RIGHT)  angle=323deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.078 m/s  dist=0.720 m  (FWD RIGHT)  angle= 38deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.160 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.876 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.432 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.432 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=0.432 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.351 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.876 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.884 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.884 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.884 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.065 m/s  dist=2.351 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.065 m/s  dist=2.351 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.065 m/s  dist=2.351 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.065 m/s  dist=2.351 m  (BWD RIGHT)  angle=327deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.707 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.241 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.095 m/s  dist=0.751 m  (FWD RIGHT)  angle= 44deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.127 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.022 m/s  dist=0.751 m  (BWD RIGHT)  angle=347deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.950 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.039 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.353 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.441 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.441 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.039 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.089 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.791 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.127 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.127 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.004 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.004 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.004 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.004 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.055 m/s  velY= -0.100 m/s  dist=0.362 m  (BWD RIGHT)  angle=299deg
+[MOTOR] velX=  0.055 m/s  velY= -0.100 m/s  dist=0.362 m  (BWD RIGHT)  angle=299deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.063 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.295 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.276 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.595 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.489 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.823 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.290 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.034 m/s  velY= -0.100 m/s  dist=0.223 m  (BWD RIGHT)  angle=289deg
+[MOTOR] velX=  0.034 m/s  velY= -0.100 m/s  dist=0.223 m  (BWD RIGHT)  angle=289deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=4.060 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=4.060 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=4.060 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=4.060 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=3.308 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.028 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] velX=  0.028 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] velX=  0.028 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.127 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.029 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] velX=  0.029 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] velX=  0.029 m/s  velY= -0.100 m/s  dist=0.186 m  (BWD RIGHT)  angle=286deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.039 m/s  velY= -0.100 m/s  dist=0.272 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.039 m/s  velY= -0.100 m/s  dist=0.272 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.039 m/s  velY= -0.100 m/s  dist=0.272 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.039 m/s  velY= -0.100 m/s  dist=0.272 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.040 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.040 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.040 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.040 m/s  velY= -0.100 m/s  dist=0.295 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX= -0.100 m/s  velY= -0.100 m/s  dist=2.882 m  (BWD LEFT )  angle=225deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.287 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.290 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.290 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.290 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.041 m/s  velY= -0.100 m/s  dist=0.290 m  (BWD RIGHT)  angle=292deg
+[MOTOR] velX=  0.038 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.038 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.038 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.038 m/s  velY= -0.100 m/s  dist=0.284 m  (BWD RIGHT)  angle=291deg
+[MOTOR] velX=  0.027 m/s  velY= -0.100 m/s  dist=0.188 m  (BWD RIGHT)  angle=285deg
+[MOTOR] velX=  0.027 m/s  velY= -0.100 m/s  dist=0.188 m  (BWD RIGHT)  angle=285deg
+[MOTOR] velX=  0.027 m/s  velY= -0.100 m/s  dist=0.188 m  (BWD RIGHT)  angle=285deg
+[MOTOR] velX=  0.027 m/s  velY= -0.100 m/s  dist=0.188 m  (BWD RIGHT)  angle=285deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.707 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.080 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.722 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.308 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.080 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.481 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=3.884 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.374 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.861 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.627 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.685 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.685 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.685 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.685 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.481 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.233 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.787 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.552 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.718 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.718 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.718 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.718 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.787 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.145 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.131 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.567 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.942 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.942 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.942 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.942 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.353 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.353 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.353 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.353 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.224 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.418 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.418 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.418 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.418 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.175 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.295 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.207 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.160 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.978 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.978 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.978 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.978 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.048 m/s  velY= -0.048 m/s  dist=0.417 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=2.290 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.861 m  (BWD RIGHT)  angle=315deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.396 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.396 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.396 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.396 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.985 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.985 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.985 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY= -0.100 m/s  dist=1.985 m  (BWD RIGHT)  angle=315deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.942 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.942 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.942 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.942 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.179 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.179 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.179 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=2.179 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.567 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.514 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.718 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.718 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.718 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.718 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.752 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.752 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.752 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.000 m/s  dist=1.752 m  (RIGHT)  angle=  0deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.063 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.063 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.063 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.063 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.276 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.276 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.276 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.276 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.489 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.489 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.489 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.489 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY= -0.044 m/s  dist=1.464 m  (BWD RIGHT)  angle=336deg
+[MOTOR] velX=  0.100 m/s  velY= -0.044 m/s  dist=1.464 m  (BWD RIGHT)  angle=336deg
+[MOTOR] velX=  0.100 m/s  velY= -0.044 m/s  dist=1.464 m  (BWD RIGHT)  angle=336deg
+[MOTOR] velX=  0.100 m/s  velY= -0.044 m/s  dist=1.464 m  (BWD RIGHT)  angle=336deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.993 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.993 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.993 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=0.993 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.191 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.191 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.191 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.191 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] velX=  0.100 m/s  velY=  0.100 m/s  dist=1.441 m  (FWD RIGHT)  angle= 45deg
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+[MOTOR] STOP
+^C
